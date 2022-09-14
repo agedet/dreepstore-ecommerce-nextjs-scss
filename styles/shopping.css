@@ -1,0 +1,114 @@
+/*  ----------MOBILE FIRST APPROACH------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+:root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --bright-color: #fff;
+    --secondary-color: #927780;
+    --dark-color: #000;
+    --nav-color: #020202;
+    --span-text-green: #07C14C;
+    --span-text-red: #9b0404;
+    --footer-color: #222330;
+    --gray-a: #F2F2F2;
+    --gray-b: #E0E0E0;
+    --gray-c: #E9E9EB; 
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f2f2f2;
+    margin: 0;
+    font-family: 'Poppins';
+    font-size: 16px;
+}
+
+.shoppin-container {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    gap: 3em;
+    /* border: solid 1px red; */
+    margin: 1em 0;
+}
+
+.shoppin-cart {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+}
+
+.shoppin-cart-item {
+    display: flex;
+    flex-direction: row;
+    border-bottom: solid .5px var(--secondary-color);
+    padding: .5em;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item-image {
+    display: flex;
+    justify-content: space-between;
+    color: var(--nav-color);
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.shoppin-checkout {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+}
+
+.checkout-btn {
+    padding: 1em;
+    width: 100%;
+    background: var(--nav-color);
+    color: var(--gray-b);
+    cursor: pointer;
+}
+
+
+.checkout-list {
+    margin: 1em 0;
+}
+
+.checkout-list p{
+    margin: .5em 0;
+    font-size: .8em;
+
+}
+
+.qty-selection {
+    text-align: start;
+}
+
+.cart-price {
+    text-align: start;
+    font-size: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+    .shoppin-container {
+        display: grid;
+        grid-template-columns: 1fr, 1fr;
+        /* border: solid 1px green; */
+        margin: 1em 0;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .shoppin-container {
+        
+        /* border: solid 1px yellow; */
+        margin: 1em 0;
+    }
+}

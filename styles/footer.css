@@ -1,0 +1,75 @@
+:root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --bright-color: #fff;
+    --secondary-color: #927780;
+    --dark-color: #000;
+    --nav-color: #020202;
+    --span-text-green: #07C14C;
+    --span-text-red: #9b0404;
+    --footer-color: #222330;
+    --gray-a: #F2F2F2;
+    --gray-b: #E0E0E0;
+    --gray-c: #E9E9EB; 
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f2f2f2;
+    margin: 0;
+    font-family: 'Poppins';
+    font-size: 16px;
+}
+
+
+.footer {
+    background: var(--nav-color);
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer-sec-name h3 {
+    color: var(--gray-b);
+    margin-bottom: 1em;
+}
+
+.footer-sec-name p {
+    color: var(--gray-b);
+    font-weight: normal;
+    margin-bottom: 2em;
+    font-size: 12px;
+}
+
+.footer-sec h4 {
+    color: var(--secondary-color);
+    margin-bottom: 1em;
+}
+
+.footer-sec ul {
+    margin-bottom: 1.5em;
+}
+
+.footer-sec li {
+    color: var(--gray-b);
+    
+}
+.footer-sec li a {
+    color: var(--gray-b);
+    font-size: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+    .footer .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

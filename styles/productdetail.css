@@ -1,0 +1,139 @@
+:root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --bright-color: #fff;
+    --dark-color: #000;
+    --nav-color: #020202;
+    --span-text-green: #07C14C;
+    --span-text-red: #9b0404;
+    --footer-color: #222330;
+    --gray-a: #F2F2F2;
+    --gray-b: #E0E0E0;
+    --gray-c: #E9E9EB; 
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f2f2f2;
+    margin: 0;
+    font-family: 'Poppins';
+    font-size: 16px;
+}
+
+.product-det-card {
+    display: grid;
+    /* grid-template-columns: 1fr; */
+    width: 90%;
+    background: var(--nav-color);
+    color: var(--gray-b);
+    margin: 1.5em 0;
+    overflow: hidden;
+}
+
+.product-det-img-component {
+    width: 100%;
+    height: 100%;
+}
+
+.product-det-img-component img { 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-det-img-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 30%;
+}
+
+.product-det-img-content div {
+    width: 25%;
+    height: 100%;
+    border: solid 1px var(--gray-b);
+}
+.product-det-img-content div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.size {
+    margin: 1em 0;
+}
+
+.size h3 {
+    margin: 1.5em 0;
+}
+
+.size .color {
+    margin: 1.5em 0;
+}
+
+.size .color-tic {
+    background: var(--nav-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: var(--gray-b);
+    align-items: center;
+    object-fit: contain;
+    place-content: center;
+}
+
+.size .color p {
+    margin: 1.5em 0;
+}
+
+.size div{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1em 0;
+}
+
+.size div p{ 
+    background: var(--nav-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: var(--gray-b);
+    align-items: center;
+    object-fit: contain;
+    place-content: center;
+}
+
+.prod-desc {
+    font-size: 14px;
+    margin: 1em 0;
+}
+
+.prod-det-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.price {
+    margin: 1em 0;
+}
+
+.prod-det-button {
+    margin: 1em 0;
+    width: 100%;
+    padding: 1em 0;
+    color: var(--gray-b);
+    background: var(--nav-color);
+    border: none;
+    cursor: pointer;
+
+}
