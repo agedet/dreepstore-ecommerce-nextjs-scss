@@ -1,0 +1,144 @@
+.blog-header {
+    text-align: center;
+}
+
+.blog-title {
+    font-size: 1em;
+    text-align: center;
+    color: var(--secondary-color);
+    text-transform: lowercase;
+    
+}
+
+.blog-italic {
+    font-size: .6em;
+    text-align: center;
+    color: var(--secondary-color);
+    text-transform: lowercase;
+    padding: 0;
+    
+}
+
+.post-card-display {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2em;
+    margin: 2em 0;
+}
+
+.post-card {
+    display: block;
+     /* width: 80%;
+     margin: 1.5em 0;
+     height: 60vh;
+     border: solid red 1px;
+     overflow: hidden; */
+}
+
+.post-card .img-component {
+    height: 35vh;
+}
+
+.post-card .img-component img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-card .text-content {
+    padding: .5em;
+}
+
+.post-card .text-content {
+    padding: .5em;
+}
+
+.post-card .text-content .post-cat {
+    font-weight: bold;
+    font-size: .6em;
+    margin: 1em 0;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+}
+
+.post-card .text-content .post-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: .5em 0;
+}
+
+.post-card .text-content .post-title a {
+    color: var(--secondary-color);
+    font-weight: bold;
+    /* font-size: 12px; */
+    /* padding: .5em 0; */
+}
+
+.post-card .text-content .post-author {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-card .text-content .post-time {
+    font-size: .7em;
+}
+
+.post-card .text-content .post-excerpt {
+    color: var(--nav-color);
+    font-weight: bold;
+    font-size: .8em;
+    padding: .5em 0;
+}
+
+.post-card .text-content .cont-btn {
+    display: block;
+    font-weight: bold;
+    font-size: 1em;
+    padding: .8em 1em;
+    background: var(--secondary-color);
+    color: var(--gray-b);
+    text-align: center;
+    margin: 1em 0;
+    border-radius: 4px;
+}
+
+
+/* POST DETAIL */
+
+.post-link {
+    margin: 1em 0;
+}
+
+.post-link a {
+    color: var(--secondary-color);
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    .post-card-display {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2em;
+        margin: 2em 0;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .post-card-display {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2em;
+        margin: 2em 0;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .post-card-display {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 2em;
+        margin: 2em 0;
+    }
+}
+
