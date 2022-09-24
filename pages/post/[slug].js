@@ -9,7 +9,7 @@ export default function Post() {
   const { slug } = query;
   const post = postsData.posts.find((x) => x.slug === slug);
   if (!post) {
-    return <div>Product Not Found</div>
+    return <div>Post Not Found</div>
   }
 
   return (

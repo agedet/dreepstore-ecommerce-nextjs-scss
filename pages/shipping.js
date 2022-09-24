@@ -1,11 +1,138 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import Cookies from 'js-cookie';
+import { Store } from '../utils/Store';
+import { useRouter } from 'next/router';
 
-export default function shipping() {
+
+export default function ShippingScreen() {
+  const { state, dispatch } = useContext(Store);
+  const { cart } = state;
+  const { shippingAddress } = cart;
+  const router = useRouter();
+
+  useEffect(() => {
+    setValue('fullName', shippingAddress.fullName);
+    setValue('firstName', shippingAddress.firstName);
+    setValue('lastName', shippingAddress.lastName);
+    setValue('address', shippingAddress.address);
+    setValue('city', shippingAddress.city);
+    setValue('postalCode', shippingAddress.postalCode);
+    setValue('country', shippingAddress.country);
+  }, [setValue, shippingAddress]);
+  
+  const { 
+    handleSubmit, 
+    register, 
+    formState: { errors }, 
+    setValue, 
+  } = useForm();
+
+  const submitHandler = ({ fullName, firstName, lastName, address, city, postalCode, country }) => {
+    dispatch({ 
+      type: 'SAVE_SHIPPING_ADDRESS',
+      payload: { firstName, address, city, postalCode, country },
+    });
+    Cookies.set('cart', JSON.stringify({ ...cart, shippingAddress: { fullName, firstName, lastName, address, city, postalCode, country, },
+    }));
+    router.push('/payment');
+  };
+
   return (
-    <section>
+    <section title='Shipping Address'>
         <div className='container'>
-            shipping
+          <div className='login-form-container'>
+            <h3>Shipping Address</h3>
+            <form onSubmit={handleSubmit(submitHandler)} >
+              <div>
+                <label htmlFor="firstName" className='form-label'>First Name</label>
+                <input
+                  className="form-input"
+                  id="firstName"
+                  autoFocus
+                  {...register('firstName', {
+                    required: 'Please enter first name',
+                  })}
+                />
+                {errors.firstName && (
+                  <div className="text-red-500">{errors.firstName.message}</div>
+                )}
+              </div>
+              <div>
+                <label htmlFor="lastName" className='form-label'>Last Name</label>
+                <input
+                  className="form-input"
+                  id="lastName"
+                  autoFocus
+                  {...register('lastName', {
+                    required: 'Please enter last name',
+                  })}
+                />
+                {errors.lastName && (
+                  <div className="text-red-500">{errors.lastName.message}</div>
+                )}
+              </div>
+              <div>
+                <label htmlFor="address" className='form-label'>Address</label>
+                <input
+                  className="form-input"
+                  id="address"
+                  {...register('address', {
+                    required: 'Please enter address',
+                    minLength: { value: 3, message: 'Address is more than 2 chars' },
+                  })}
+                />
+                {errors.address && (
+                  <div className="text-red-500">{errors.address.message}</div>
+                )}
+              </div>
+              <div>
+                <label htmlFor="city" className='form-label'>City</label>
+                <input
+                  className="form-input"
+                  id="city"
+                  {...register('city', {
+                    required: 'Please enter city',
+                  })}
+                />
+                {errors.city && (
+                  <div className="text-red-500 ">{errors.city.message}</div>
+                )}
+              </div>
+              <div>
+                <label htmlFor="postalCode" className='form-label'>Postal Code</label>
+                <input
+                  className="form-input"
+                  id="postalCode"
+                  {...register('postalCode', {
+                    required: 'Please enter postal code',
+                  })}
+                />
+                {errors.postalCode && (
+                  <div className="text-red-500 ">{errors.postalCode.message}</div>
+                )}
+              </div>
+              <div>
+                <label htmlFor="country" className='form-label'>Country</label>
+                <input
+                  className="form-input"
+                  id="country"
+                  {...register('country', {
+                    required: 'Please enter country',
+                  })}
+                />
+                {errors.country && (
+                  <div className="text-red-500 ">{errors.country.message}</div>
+                )}
+              </div>
+              <div>
+                <button className="create-act-btn">Next</button>
+              </div>
+          </form>
         </div>
+      </div>
     </section>
-  )
+  );
 }
+
+ShippingScreen.auth = true;

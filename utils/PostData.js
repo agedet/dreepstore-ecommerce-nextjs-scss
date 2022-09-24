@@ -10,7 +10,9 @@
             // ],
             featuredImage: '/images/post/lego.jpg',
             excerpt: 'This product excerpt goes a long long way to tell you to click the the button below to read more....lolssss',
-            content: 'Remove oil stains from a purse or shoes by sprinkling baby powder on the soiled spot and letting it sit overnightSpray lemon juice on yellow pit stains before you put the shirt  the wash Fashion tape create a DIY crop top by using clear fashion tape to alter the hem of your top You can also use the tape as a quick fix on the hemline of your pants or skirt'
+            content: 'Remove oil stains from a purse or shoes by sprinkling baby powder on the soiled spot and letting it sit overnightSpray lemon juice on yellow pit stains before you put the shirt  the wash Fashion tape create a DIY crop top by using clear fashion tape to alter the hem of your top You can also use the tape as a quick fix on the hemline of your pants or skirt',
+            authorName: 'Celestina Udia',
+            authorPhoto: '/images/author/reebok.jpg'
 
         },
         {
@@ -23,7 +25,9 @@
             // ],
             featuredImage: '/images/post/lego.jpg',
             excerpt: 'This product excerpt goes a long long way to tell you to click the the button below to read more....lolssss',
-            content: 'Remove oil stains from a purse or shoes by sprinkling baby powder on the soiled spot and letting it sit overnightSpray lemon juice on yellow pit stains before you put the shirt  the wash Fashion tape create a DIY crop top by using clear fashion tape to alter the hem of your top You can also use the tape as a quick fix on the hemline of your pants or skirt'
+            content: 'Remove oil stains from a purse or shoes by sprinkling baby powder on the soiled spot and letting it sit overnightSpray lemon juice on yellow pit stains before you put the shirt  the wash Fashion tape create a DIY crop top by using clear fashion tape to alter the hem of your top You can also use the tape as a quick fix on the hemline of your pants or skirt',
+            authorName: 'Blessing Dennies',
+            authorPhoto: '/images/author/reebok.jpg'
         },
         {
             slug: 'shopping-made-easy',
@@ -35,7 +39,9 @@
             // ],
             featuredImage: '/images/roberto.jpg',
             excerpt: 'This product excerpt goes a long long way to tell you how to shop on ecommerce stores....lolssss',
-            content: 'Remove oil stains from a purse or shoes by sprinkling baby powder on the soiled spot and letting it sit overnightSpray lemon juice on yellow pit stains before you put the shirt  the wash Fashion tape create a DIY crop top by using clear fashion tape to alter the hem of your top You can also use the tape as a quick fix on the hemline of your pants or skirt'
+            content: 'Remove oil stains from a purse or shoes by sprinkling baby powder on the soiled spot and letting it sit overnightSpray lemon juice on yellow pit stains before you put the shirt  the wash Fashion tape create a DIY crop top by using clear fashion tape to alter the hem of your top You can also use the tape as a quick fix on the hemline of your pants or skirt',
+            authorName: 'Margaret James',
+            authorPhoto: '/images/author/reebok.jpg'
         },
         {
             slug: '4-things-do',
@@ -47,7 +53,9 @@
             // ],
             featuredImage: '/images/roberto.jpg',
             excerpt: 'This product excerpt goes a long long way to tell you how to shop on ecommerce stores....lolssss',
-            content: 'Remove oil stains from a purse or shoes by sprinkling baby powder on the soiled spot and letting it sit overnightSpray lemon juice on yellow pit stains before you put the shirt  the wash Fashion tape create a DIY crop top by using clear fashion tape to alter the hem of your top You can also use the tape as a quick fix on the hemline of your pants or skirt'
+            content: 'Remove oil stains from a purse or shoes by sprinkling baby powder on the soiled spot and letting it sit overnightSpray lemon juice on yellow pit stains before you put the shirt  the wash Fashion tape create a DIY crop top by using clear fashion tape to alter the hem of your top You can also use the tape as a quick fix on the hemline of your pants or skirt',
+            authorName: 'Kasie d kreative',
+            authorPhoto: '/images/author/reebok.jpg'
         }
     ]
 }

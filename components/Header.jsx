@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import NextLink from 'next/link'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Store } from '../utils/Store';
+import { signOut, useSession } from 'next-auth/react';
+import Cookies from 'js-cookie';
+// import DropdownLink from './DropdownLink';
 
 const Header = () => {
     const [clicked, setClicked] = useState(false);
@@ -13,10 +16,21 @@ const Header = () => {
     const closeMobileClicked = () => setClicked(false);
 
     // Cart add item
-    const { state, dispatch: ctxDispatch } = useContext(Store);
-    const {
-        cart,
-    } = state;
+    const { status, data: session } = useSession();
+
+    const { state, dispatch } = useContext(Store);
+    const { cart } = state;
+    const [cartItemsCount, setCartItemsCount ] = useState(0);
+    useEffect(() => {
+      setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
+    }, [cart.cartItems]);
+    
+    //Logout
+    const logoutClickHandler = () => {
+        Cookies.remove('cart');
+        dispatch({ type: 'CART_RESET' });
+        signOut({ callbackUrl: '/login' });
+    }
 
   return (
     <div className='navbar'>
@@ -55,25 +69,58 @@ const Header = () => {
                     <li onClick={closeMobileClicked}>
                         <NextLink href="/cart">
                            <a>  
-                                <i className='fas fa-cart-shopping-fast' />
-                                <i className='fas fa-bag-shopping' />
                                 <i className='fas fa-cart-plus' />
                                 Cart
-                                {cart.cartItems.length > 0 && (
+                                {/* {cart.cartItems.length > 0 && (
                                     <span className='cart-span-add'>
                                         {cart.cartItems.reduce((a, c) => a + c.quantity, 0 )}
+                                    </span>
+                                )} */}
+                                {cartItemsCount > 0 && (
+                                    <span className='cart-span-add'>
+                                        {cartItemsCount}
                                     </span>
                                 )}
                             </a> 
                         </NextLink> 
                     </li>
-                    <li>
+                    {/* <li>
                         <a>
                             <i className='fas fa-user' /> 
                             User  
                             <i className='fas fa-circle-caret-down' />
                         </a>
-                        {/* ADMIN */}
+                    </li> */}
+                    <li>
+                        {
+                            status === 
+                                'loading' ? 
+                                ('Loading') : 
+                            session?.user ? 
+                            (
+                                <div>
+                                    <span>{session.user.firstName}</span>
+                                    <select>
+                                        <option>
+                                            <Link href='/profile'><a>Profile</a></Link>
+                                        </option>
+                                        <option>
+                                            <Link href='/order-history'><a>Order History</a></Link>
+                                        </option>
+                                        {session.user.isAdmin && (
+                                            <option>
+                                                <Link href='/admin/dashboard'><a>Admin Dashboard</a></Link>
+                                            </option>
+                                        )}
+                                        <option>
+                                            <a onClick={logoutClickHandler}>Logout</a>  
+                                        </option>
+                                    </select>
+                                </div>
+                            ) : (
+                                <Link href="/signin"><a>Login</a></Link>
+                            )
+                        }
                     </li>
                 </ul>
             </nav>

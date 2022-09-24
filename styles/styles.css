@@ -189,6 +189,20 @@ nav .search-nav {
   padding: 0 .5em;
 }
 
+.cart-nobrainer {
+  margin: 2em 0;
+  text-align: center;
+  display: block;
+}
+
+.cart-nobrainer img {
+  width: 70%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2em 0;
+}
+
 .cart-link {
   color: var(--nav-color);
 }
@@ -217,6 +231,15 @@ nav .search-nav {
   border-radius: 100px;
   margin-bottom: 1em;
   color: var(--span-text-red);
+}
+
+.payment-btn-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 section {
@@ -319,6 +342,50 @@ section {
   color: var(--nav-color);
   background: var(--gray-b);
   cursor: pointer;
+}
+
+.login-form-container {
+  margin: 5em 4em;
+  padding: 1em;
+  border: solid 1px var(--secondary-color);
+}
+
+.login-form-container h3 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.login-form-container div {
+  margin-bottom: 1em;
+  width: 95%;
+}
+
+.login-form-container div .form-label {
+  display: block;
+  font-size: .8em;
+}
+
+.login-form-container div .form-input {
+  display: block;
+  width: 100%;
+  padding: .6em .5em;
+}
+
+.login-form-container div a {
+  color: var(--secondary-color);
+}
+
+.login-form-container div .create-act-btn {
+  display: block;
+  padding: 1em;
+  background: var(--nav-color);
+  color: var(--gray-b);
+  margin-bottom: .5em;
+  border-radius: 4px;
+}
+
+.login-form-container div .link-acc {
+  font-size: .8em;
 }
 
 @media only screen and (min-width: 768px) {

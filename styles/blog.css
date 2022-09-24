@@ -7,7 +7,6 @@
     text-align: center;
     color: var(--secondary-color);
     text-transform: lowercase;
-    
 }
 
 .blog-italic {
@@ -16,7 +15,6 @@
     color: var(--secondary-color);
     text-transform: lowercase;
     padding: 0;
-    
 }
 
 .post-card-display {
@@ -28,11 +26,6 @@
 
 .post-card {
     display: block;
-     /* width: 80%;
-     margin: 1.5em 0;
-     height: 60vh;
-     border: solid red 1px;
-     overflow: hidden; */
 }
 
 .post-card .img-component {
@@ -70,8 +63,6 @@
 .post-card .text-content .post-title a {
     color: var(--secondary-color);
     font-weight: bold;
-    /* font-size: 12px; */
-    /* padding: .5em 0; */
 }
 
 .post-card .text-content .post-author {
@@ -102,7 +93,6 @@
     border-radius: 4px;
 }
 
-
 /* POST DETAIL */
 
 .post-link {
@@ -113,7 +103,74 @@
     color: var(--secondary-color);
 }
 
+.post-det-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+   
+    margin: 1.5em 0;
+    /* overflow: hidden; */
+}
 
+.post-det-img-component {
+    width: 100%;
+    height: 100%;
+}
+
+.post-det-img-component img { 
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.post-det-text-content {
+    padding: .5em;
+}
+
+.post-det-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: .5em 0;
+}
+
+.post-det-title a {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.post-det-cat {
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+}
+
+.post-det-author {
+    display: flex;
+    color: var(--nav-color);
+    margin: .6em 0;
+}
+
+.post-det-author img {
+    margin-right: .3em;
+    border-radius: 50%;
+}
+
+.post-det-time {
+    text-align: end;
+    margin: .8em 0;
+    font-size: 1em;
+}
+
+.post-det-btn {
+    display: block;
+    background: var(--secondary-color);
+    border: none;
+    width: 100%;
+    margin: 1.5em 0;
+    padding: 1em ;
+    color: var(--gray-b);
+    border-radius: 4px;
+}
 
 @media only screen and (min-width: 768px) {
     .post-card-display {
@@ -141,4 +198,3 @@
         margin: 2em 0;
     }
 }
-

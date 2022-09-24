@@ -46,7 +46,7 @@ body {
 .shoppin-cart-item {
     display: flex;
     flex-direction: row;
-    border-bottom: solid .5px var(--secondary-color);
+    border-bottom: solid .3px var(--secondary-color);
     padding: .5em;
     text-align: center;
     align-items: center;
@@ -68,6 +68,8 @@ body {
 }
 
 .checkout-btn {
+    display: block;
+    border: none;
     padding: 1em;
     width: 100%;
     background: var(--nav-color);

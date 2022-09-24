@@ -3,35 +3,40 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
 import { Store } from '../utils/Store';
+import { toast } from 'react-toastify';
+import dynamic from 'next/dynamic';
+import axios from 'axios'
 
-export default function Cart () {
+function Cart () {
   const { state, dispatch } = useContext(Store);
-  // const router = useRouter();
+  const router = useRouter();
 
   const {
     cart: { cartItems },
   } = state;
 
-  const updateCartHandler = async (item, quantity) => {
+  const updateCartHandler = async (item, qty) => {
+    const quantity = Number(qty);
     const { data } = await axios.get(`/api/products/${item._id}`)
     if (data.countInStock < quantity) {
-        window.alert('Sorry, Product is out of Stock');
-        // return toast.error('Sorry, Product is out of Stock!);
-        return;
+      return toast.error('Sorry, Product is out of Stock!');
+        // window.alert('Sorry, Product is out of Stock');
+        // return;
     }
 
     dispatch({type: 'CART_ADD_ITEM', payload: {...item, quantity}, });
-    window.alert('Product updated in the cart');
-    //toast.success('Product updated in the cart');
+    toast.success('Product updated in the cart');
+    // window.alert('Product updated in the cart');
+    
   };
 
   const removeItemHandler = (item) => {
     dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
   };
 
-  const checkOutHandler =() => {
-    router.push('login?redirect=/shipping');
-  }
+  // const checkOutHandler =() => {
+  //   router.push('login?redirect=/shipping');
+  // }
 
   return (
     <section title='cart'>
@@ -40,17 +45,21 @@ export default function Cart () {
           <div>
             <h3>Shopping Cart</h3>
             {cartItems.length === 0 ? 
-              (<div>
-                  Cart is empty.  
+              (<div className='cart-nobrainer'>
+                  Oooops! Cart is empty. {' '}  
                   <Link href='/'>
                     <a className='cart-link'>
-                      Go Shopping <i className='fas fa-cart-plus' />
+                      Lets go shopping <i className='fas fa-cart-plus' />
                     </a>
                   </Link>
+
+                  <img 
+                    src='/images/shopping.jpg'
+                    alt='shopping'
+                  />
                 </div>
               ) : 
-            (
-              <div className='shoppin-container'>
+              (<div className='shoppin-container'>
                 <div className='shoppin-cart'>
                   <div>
                     {cartItems.map((item) => (
@@ -144,7 +153,7 @@ export default function Cart () {
                     </li>
                     <li>
                       <button
-                        onClick={checkOutHandler}
+                        onClick={() => router.push('signin?redirect=/shipping')}
                         className='checkout-btn'
                       >
                         CHECK OUT <i className='fas fa-scanner-gun' />
@@ -160,3 +169,6 @@ export default function Cart () {
     </section>
   )
 }
+
+
+export default dynamic(() => Promise.resolve(Cart), { ssr: false });

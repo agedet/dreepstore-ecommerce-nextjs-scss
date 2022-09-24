@@ -186,6 +186,17 @@ nav {
     padding: 0 .5em;
 }
 
+.cart-nobrainer {
+    margin: 2em 0;
+    text-align: center;
+    display: block;
+}
+
+.cart-nobrainer img {
+    width: 70%;
+    align-items: center;
+    margin: 2em 0;
+}
 .cart-link {
     color: var(--nav-color);
 }
@@ -217,6 +228,10 @@ nav {
     color: var(--span-text-red);
 }
 
+.payment-btn-div {
+    display: flex;
+    justify-content: space-between;
+}
 
 // ----------------HOME --------------
 
@@ -254,7 +269,6 @@ section {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 2em;
     margin: 2em 0;
-
 }
 
 .product-card {
@@ -321,8 +335,6 @@ section {
             margin-top: 1em;
             cursor: pointer;
 
-            
-
             &:hover {
                 color: var(--nav-color);
                 background: var(--gray-b);
@@ -330,10 +342,52 @@ section {
             }
         }
     }
-
-
 }
 
+.login-form-container {
+    margin: 5em 4em;
+    padding: 1em;
+    border: solid 1px var(--secondary-color);
+
+    h3 {
+        font-size: 2em;
+        margin-bottom: 1em;
+    }
+
+    div {
+        margin-bottom: 1em;
+        width: 95%;
+
+        .form-label {
+            display: block;
+            font-size: .8em;
+        }
+
+        .form-input {
+            display: block;
+            width: 100%;
+            padding: .6em .5em;
+        }
+
+        a {
+            color: var(--secondary-color);
+        }
+
+        .create-act-btn {
+            display: block;
+            // width: 100%;
+            padding: 1em;
+            background: var(--nav-color);
+            color: var(--gray-b);
+            margin-bottom: .5em;
+            border-radius: 4px;
+        }
+
+        .link-acc {
+            font-size: .8em;
+        }
+    }
+}
 //-------MEDIA QUERYS ---------
 
 @media only screen and (min-width: 768px) {
@@ -407,7 +461,6 @@ section {
         display: block;
     }
 }
-
 
 @media only screen and (min-width: 1024px) { 
     // ---------NAVIVAGATION MENU--------
