@@ -65,6 +65,7 @@ body {
 .shoppin-checkout {
     display: grid;
     grid-template-columns: 1fr, 1fr;
+
 }
 
 .checkout-btn {
@@ -75,6 +76,7 @@ body {
     background: var(--nav-color);
     color: var(--gray-b);
     cursor: pointer;
+    outline: none;
 }
 
 .checkout-list {

@@ -1,9 +1,9 @@
 import { ProductDetail } from "../../components";
-import data from "../../public/data";
 import {useRouter } from 'next/router';
 import Rating from "../../utils/Rating";
 import { useContext } from "react";
 import { Store } from "../../utils/Store";
+import { Store } from "../../utils/data.js";
 import Link from "next/link";
 
 const ProductScreen = () => {
