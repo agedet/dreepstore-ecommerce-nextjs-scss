@@ -27,12 +27,11 @@ export default function SignupScreen() {
     formState: { errors },
   } = useForm();
 
-  const submitHandler = async ({ firstName, lastName, email, password }) => {
-    console.log(firstName, lastName, email, password)
+  const submitHandler = async ({ fullName, email, password }) => {
+    console.log(fullName, email, password)
     try {
       await Axios.post('/api/auth/signup', {
-        firstName,
-        lastName,
+        fullName,
         email,
         password,
       });
@@ -58,24 +57,24 @@ export default function SignupScreen() {
 
             <form onSubmit={handleSubmit(submitHandler)}>
               <div>
-                <label htmlFor='firstName' className='form-label'>
-                  First Name
+                <label htmlFor='fullName' className='form-label'>
+                  Full Name
                 </label>
                 <input 
-                  type="firstName" 
-                  id='firstName'
-                  placeholder='enter first name here' 
+                  type="fullName" 
+                  id='fullName'
+                  placeholder='enter full name here' 
                   className='form-input' 
-                  {...register('firstName', {
-                    required: 'Please enter first name',
+                  {...register('fullName', {
+                    required: 'Please enter full name',
                   })}
                 />
-                {errors.firstName && (
-                  <div className="text-red-500">{errors.firstName.message}</div>
+                {errors.fullName && (
+                  <div className="text-red-500">{errors.fullName.message}</div>
                 )}
               </div>
 
-              <div>
+              {/* <div>
                 <label htmlFor='lastName' className='form-label'>Last Name</label>
                 <input 
                   type="lastName" 
@@ -89,7 +88,7 @@ export default function SignupScreen() {
                 {errors.lastName && (
                   <div className="text-red-500">{errors.lastName.message}</div>
                 )}
-              </div>
+              </div> */}
 
               <div>
                 <label htmlFor='email' className='form-label'>Email</label>

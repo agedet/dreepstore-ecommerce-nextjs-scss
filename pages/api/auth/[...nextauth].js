@@ -31,8 +31,7 @@ export default NextAuth({
         if (user && bcryptjs.compareSync(credentials.password, user.password)) {
           return {
             _id: user._id,
-            firstName: user.firstName,
-            lastName: user.lastName,
+            fullName: user.fullName,
             email: user.email,
             image: 'f',
             isAdmin: user.isAdmin,

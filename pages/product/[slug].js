@@ -3,7 +3,7 @@ import {useRouter } from 'next/router';
 import Rating from "../../utils/Rating";
 import { useContext } from "react";
 import { Store } from "../../utils/Store";
-import { Store } from "../../utils/data.js";
+import data from "../../utils/data.js";
 import Link from "next/link";
 
 const ProductScreen = () => {
@@ -97,8 +97,12 @@ const ProductScreen = () => {
                 <div>
                     {product.countInStock > 0 && (
                         <div>
-                            <button onClick={addToCartHandler} className="prod-det-button">
-                              <i className="fas fa-cart-plus" />  Add to Cart
+                            <button 
+                                onClick={addToCartHandler} 
+                                className="prod-det-button"
+                            >
+                              <i className="fas fa-cart-plus" />  
+                              Add to Cart
                             </button>
                         </div>
                     )}

@@ -36,7 +36,7 @@ export default function PaymentScreen() {
             <div className='login-form-container'>
                 <h3>Payment Method</h3>
                 <form onSubmit={submitHandler}>
-                    {['PayPal', 'Stripe', 'CashOnDelivery'].map((payment) => (
+                    {['PayPal', 'Stripe', 'PayStack', 'CashOnDelivery'].map((payment) => (
                         <div key={payment}>
                             <input 
                                 name="paymentMethod"

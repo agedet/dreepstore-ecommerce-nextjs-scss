@@ -8,24 +8,28 @@ import { StoreProvider } from "../utils/Store";
 import 'react-toastify/dist/ReactToastify.css';
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     return (
         <SessionProvider session={session}>
-        <StoreProvider>
-            {Component.auth ? (
-                <Auth adminOnly={Component.auth.adminOnly}>
+            <StoreProvider>
+                <PayPalScriptProvider deferLoading={true}>
+                {Component.auth ? (
+                    <Auth adminOnly={Component.auth.adminOnly}>
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </Auth>
+                )
+                : (
                     <Layout>
                         <Component {...pageProps} />
                     </Layout>
-                </Auth>
-            )
-            : (
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
-            )}
-        </StoreProvider>
+                )}
+                </PayPalScriptProvider>
+            </StoreProvider>
         </SessionProvider>
     )
 }

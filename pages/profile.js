@@ -1,4 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { getError } from '../utils/error';
+import { toast } from 'react-toastify';
+import { signIn, useSession } from 'next-auth/react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 export default function ProfileScreen() {
     const { data: session } = useSession();
@@ -12,16 +17,14 @@ export default function ProfileScreen() {
     } = useForm();
 
     useEffect(() => {
-        setValue('firstName', session.user.firstName);
-        setValue('lastName', session.user.lastName);
+        setValue('fullName', session.user.fullName);
         setValue('email', session.user.email);
     }, [session.user, setValue]);
 
-    const submitHandler = async ({ firstName, lastName, email, password }) => {
+    const submitHandler = async ({ fullName, email, password }) => {
         try {
         await axios.put('/api/auth/update', {
-            firstName,
-            lastName,
+            fullName,
             email,
             password,
         });
@@ -46,21 +49,21 @@ export default function ProfileScreen() {
            <h3>Profile</h3> 
            <form onSubmit={handleSubmit(submitHandler)}>
                 <div>
-                    <label htmlFor="firstName" className='form-label'>First Name</label>
+                    <label htmlFor="fullName" className='form-label'>Full Name</label>
                     <input
                         type="text"
                         className="form-input"
-                        id="firstName"
+                        id="fullName"
                         autoFocus
-                        {...register('firstName', {
-                        required: 'Please enter first name',
+                        {...register('fullName', {
+                        required: 'Please enter full name',
                         })}
                     />
-                    {errors.firstName && (
-                        <div className="text-red-500">{errors.firstName.message}</div>
+                    {errors.fullName && (
+                        <div className="text-red-500">{errors.fullName.message}</div>
                     )}
                 </div>
-                <div>
+                {/* <div>
                     <label htmlFor="lastName" className='form-label'>Last Name</label>
                     <input
                         type="text"
@@ -74,7 +77,7 @@ export default function ProfileScreen() {
                     {errors.lastName && (
                         <div className="text-red-500">{errors.lastName.message}</div>
                     )}
-                </div>
+                </div> */}
 
                 <div>
                     <label htmlFor="email" className='form-label'>Email</label>

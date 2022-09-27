@@ -100,22 +100,21 @@ const Header = () => {
                             (
                                 <div>
                                     <span>{session.user.firstName}</span>
-                                    <select>
-                                        <option>
+                                   
+                                        
                                             <Link href='/profile'><a>Profile</a></Link>
-                                        </option>
-                                        <option>
+                                        
+                                        
                                             <Link href='/order-history'><a>Order History</a></Link>
-                                        </option>
+                                        
                                         {session.user.isAdmin && (
-                                            <option>
+                                            
                                                 <Link href='/admin/dashboard'><a>Admin Dashboard</a></Link>
-                                            </option>
+                                            
                                         )}
-                                        <option>
+                                        
                                             <a onClick={logoutClickHandler}>Logout</a>  
-                                        </option>
-                                    </select>
+                                        
                                 </div>
                             ) : (
                                 <Link href="/signin"><a>Login</a></Link>

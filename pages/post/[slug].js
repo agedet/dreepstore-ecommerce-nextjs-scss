@@ -24,7 +24,6 @@ export default function Post() {
         </p>
 
         <div>
-          <h3>Post Detail</h3>
             <PostDetail post={post} />  
         </div>
       </div>

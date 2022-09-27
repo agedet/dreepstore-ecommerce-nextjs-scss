@@ -13,8 +13,8 @@ export default function ShippingScreen() {
 
   useEffect(() => {
     setValue('fullName', shippingAddress.fullName);
-    setValue('firstName', shippingAddress.firstName);
-    setValue('lastName', shippingAddress.lastName);
+    // setValue('firstName', shippingAddress.firstName);
+    // setValue('lastName', shippingAddress.lastName);
     setValue('address', shippingAddress.address);
     setValue('city', shippingAddress.city);
     setValue('postalCode', shippingAddress.postalCode);
@@ -28,12 +28,12 @@ export default function ShippingScreen() {
     setValue, 
   } = useForm();
 
-  const submitHandler = ({ fullName, firstName, lastName, address, city, postalCode, country }) => {
+  const submitHandler = ({ fullName, address, city, postalCode, country }) => {
     dispatch({ 
       type: 'SAVE_SHIPPING_ADDRESS',
-      payload: { firstName, address, city, postalCode, country },
+      payload: { fullName, address, city, postalCode, country },
     });
-    Cookies.set('cart', JSON.stringify({ ...cart, shippingAddress: { fullName, firstName, lastName, address, city, postalCode, country, },
+    Cookies.set('cart', JSON.stringify({ ...cart, shippingAddress: { fullName,  address, city, postalCode, country, },
     }));
     router.push('/payment');
   };
@@ -45,20 +45,20 @@ export default function ShippingScreen() {
             <h3>Shipping Address</h3>
             <form onSubmit={handleSubmit(submitHandler)} >
               <div>
-                <label htmlFor="firstName" className='form-label'>First Name</label>
+                <label htmlFor="fullName" className='form-label'>Full Name</label>
                 <input
                   className="form-input"
-                  id="firstName"
+                  id="fullName"
                   autoFocus
-                  {...register('firstName', {
-                    required: 'Please enter first name',
+                  {...register('fullName', {
+                    required: 'Please enter full name',
                   })}
                 />
-                {errors.firstName && (
-                  <div className="text-red-500">{errors.firstName.message}</div>
+                {errors.fullName && (
+                  <div className="text-red-500">{errors.fullName.message}</div>
                 )}
               </div>
-              <div>
+              {/* <div>
                 <label htmlFor="lastName" className='form-label'>Last Name</label>
                 <input
                   className="form-input"
@@ -71,7 +71,7 @@ export default function ShippingScreen() {
                 {errors.lastName && (
                   <div className="text-red-500">{errors.lastName.message}</div>
                 )}
-              </div>
+              </div> */}
               <div>
                 <label htmlFor="address" className='form-label'>Address</label>
                 <input
