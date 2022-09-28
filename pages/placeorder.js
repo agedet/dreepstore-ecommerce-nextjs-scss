@@ -61,120 +61,128 @@ export default function PlaceOrderScreen() {
   };
 
   return (
-    <section title='Place Order'>
+    <section title='Place Order' className='place-order-section'>
       <div className='container'>
         <h3>Place Order</h3>
-          {cartItems.length === 0 ? (
-            <div>
-              Cart is empty. <Link href="/">Go shopping</Link>
-            </div>
-            ) : (
-              <div>
-                <div>
+        {cartItems.length === 0 ? (
+          <div className='cart-nobrainer'>
+            Oooops! Cart is empty. {' '}  
+            <Link href='/'>
+              <a className='cart-link'>
+                Lets go shopping <i className='fas fa-cart-plus' />
+              </a>
+            </Link>
+            <img 
+              src='/images/shopping.jpg'
+              alt='shopping'
+            />
+          </div>
+          ) : (
+          <div className='ship-order'>
+            <div className='ship-pick'>
+              <div className='ship-add'>
+                <h4>Shipping Address</h4>
                   <div>
-                    <h2>Shipping Address</h2>
-                    <div>
-                      {shippingAddress.fullName}, {shippingAddress.address},{' '}
-                      {shippingAddress.city}, {shippingAddress.postalCode},{' '}
-                      {shippingAddress.country}
-                    </div>
-                    <div>
-                      <Link href="/shipping">Edit</Link>
-                    </div>
+                    <p>Name: {shippingAddress.fullName}</p>
+                    <p>Address: {shippingAddress.address},{' '}
+                    {shippingAddress.city}, {shippingAddress.postalCode},{' '}
+                    {shippingAddress.country}.</p>             
                   </div>
-                  <div className="card  p-5">
-                    <h2 className="mb-2 text-lg">Payment Method</h2>
-                    <div>{paymentMethod}</div>
-                    <div>
-                      <Link href="/payment">Edit</Link>
-                    </div>
+                  <div className='ship-add-link'>
+                    <Link href="/shipping"><a>Edit</a></Link>
                   </div>
-                  <div className="card overflow-x-auto p-5">
-                    <h2 className="mb-2 text-lg">Order Items</h2>
-                    <table className="min-w-full">
-                      <thead className="border-b">
-                        <tr>
-                          <th className="px-5 text-left">Item</th>
-                          <th className="    p-5 text-right">Quantity</th>
-                          <th className="  p-5 text-right">Price</th>
-                          <th className="p-5 text-right">Subtotal</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {cartItems.map((item) => (
-                          <tr key={item._id} className="border-b">
-                            <td>
-                              <Link href={`/product/${item.slug}`}>
-                                <a className="flex items-center">
-                                  <Image
-                                    src={item.image}
-                                    alt={item.name}
-                                    width={50}
-                                    height={50}
-                                  ></Image>
-                                  &nbsp;
-                                  {item.name}
-                                </a>
-                              </Link>
-                            </td>
-                            <td className=" p-5 text-right">{item.quantity}</td>
-                            <td className="p-5 text-right">${item.price}</td>
-                            <td className="p-5 text-right">
-                              ${item.quantity * item.price}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                    <div>
-                      <Link href="/cart">Edit</Link>
-                    </div>
+              </div>
+              <div className='ship-add'>
+                <h4>Payment Method</h4>
+                  <div><p>{paymentMethod}</p></div>
+                  <div className='ship-add-link'>
+                    <Link href="/payment"><a>Edit</a></Link>
                   </div>
+              </div>
+              <div className='ship-add'>
+                <h4 >Order Items</h4>
+                <table className="order-table">
+                  <thead className="order-thead">
+                    <tr className='order-tr'>
+                      <th className="order-th">Item</th>
+                      <th className="order-th">Quantity</th>
+                      <th className="order-th">Price</th>
+                      <th className="order-th">Subtotal</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cartItems.map((item) => (
+                      <tr key={item._id}>
+                        <td>
+                          <Link href={`/product/${item.slug}`}>
+                            <a className='a-im'>
+                              <Image
+                                src={item.image}
+                                alt={item.name}
+                                width={50}
+                                height={50}
+                              ></Image>
+                              &nbsp;
+                              <p>{item.name}</p>
+                            </a>
+                          </Link>
+                        </td>
+                        <td><p>{item.quantity}</p></td>
+                        <td><p>₦{item.price}</p> </td>
+                        <td><p>₦{item.quantity * item.price}</p></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <div className='ship-add-link'>
+                  <Link href="/cart"><a>Edit</a></Link>
                 </div>
-            <div>
-              <div className="card  p-5">
-                <h2 className="mb-2 text-lg">Order Summary</h2>
-                <ul>
-                  <li>
-                    <div className="mb-2 flex justify-between">
-                      <div>Items</div>
-                      <div>${itemsPrice}</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="mb-2 flex justify-between">
-                      <div>Tax</div>
-                      <div>${taxPrice}</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="mb-2 flex justify-between">
-                      <div>Shipping</div>
-                      <div>${shippingPrice}</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="mb-2 flex justify-between">
-                      <div>Total</div>
-                      <div>${totalPrice}</div>
-                    </div>
-                  </li>
-                  <li>
-                    <button
-                      type='submit'
-                      disabled={loading}
-                      onClick={placeOrderHandler}
-                      className="primary-button w-full"
-                    >
-                      {loading ? 'Loading...' : 'Place Order'}
-                    </button>
-                  </li>
-                </ul>
               </div>
             </div>
-        </div>
-      )}
-        </div>
+            <div className='ship-sum'>
+              <div className='ship-add'>
+                <h4>Order Summary</h4>
+                <ul>
+                  <li>
+                    <div>
+                      <h5>Items</h5>
+                      <div><p>₦{itemsPrice}</p></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h5>Tax</h5>
+                      <div><p>₦{taxPrice}</p> </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h5>Shipping</h5>
+                      <div> <p>₦{shippingPrice}</p></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h5>Total</h5>
+                      <div><p>₦{totalPrice}</p></div>
+                    </div>
+                  </li>
+                </ul>
+                <div>
+                  <button
+                    type='submit'
+                    disabled={loading}
+                    onClick={placeOrderHandler}
+                    className="create-act-btn"
+                    >
+                    {loading ? 'Loading...' : 'Place Order'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </section>
   )
 }

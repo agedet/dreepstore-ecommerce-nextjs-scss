@@ -14,10 +14,10 @@ async function handler(req, res) {
   }
 
   const { user } = session;
-  const { fullName, email, password } = req.body;
+  const { name, email, password } = req.body;
 
   if (
-    !fullName ||
+    !name ||
     !email.includes('@') ||
     (password && password.trim().length < 5)
   ) {
@@ -29,7 +29,7 @@ async function handler(req, res) {
 
   await db.connect();
   const toUpdateUser = await User.findById(user._id);
-  toUpdateUser.fullName = fullName;
+  toUpdateUser.name = name;
   toUpdateUser.email = email;
 
   if (password) {

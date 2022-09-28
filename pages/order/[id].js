@@ -192,106 +192,108 @@ function OrderScreen() {
   }
 
   return (
-    <section title={`Order ${orderId}`} >
-        <div className='container'>
-            <div className='order-container'>
-                <h1 className="mb-4 text-xl">{`Order ${orderId}`}</h1>
-                    {loading ? (
-                        <div>Loading...</div>
-                        ) : error ? (
-                        <div className="alert-error">{error}</div>
-                        ) : (
-                <div className="grid md:grid-cols-4 md:gap-5">
-                    <div className="overflow-x-auto md:col-span-3">
-                        <div className="card  p-5">
-                        <h2 className="mb-2 text-lg">Shipping Address</h2>
-                        <div>
-                            {shippingAddress.fullName}, {shippingAddress.address},{' '}
-                            {shippingAddress.city}, {shippingAddress.postalCode},{' '}
-                            {shippingAddress.country}
-                        </div>
-                        {isDelivered ? (
-                            <div className="alert-success">Delivered at {deliveredAt}</div>
-                        ) : (
-                            <div className="alert-error">Not delivered</div>
-                        )}
-                        </div>
+    <section title={`Order ${orderId}`} className="place-order-section">
+      <div className='container'>
+        <h3>{`Order ${orderId}`}</h3>
+        <div className='order-container'>
+            {loading ? (
+              <div>Loading...</div>
+              ) : error ? (
+              <div className="alert-error">{error}</div>
+              ) : (
+          <div className="ship-order">
+            <div className="ship-pick">
+              <div className="ship-add">
+                <h4>Shipping Address</h4>
+                <div>
+                  <p>Name: {shippingAddress.fullName}</p>
+                  <p>
+                    Address: {shippingAddress.address},{' '} {shippingAddress.city}, {shippingAddress.postalCode},{' '} {shippingAddress.country}
+                  </p> 
+                </div>
+                {isDelivered ? (
+                  <div className="alert-success">
+                    <p>Delivered at {deliveredAt}</p>
+                  </div>
+                  ) : (
+                  <div className="alert-error">
+                    <p>Not delivered</p>
+                  </div>
+                )}
+              </div>
 
-                        <div className="card p-5">
-                        <h2 className="mb-2 text-lg">Payment Method</h2>
-                        <div>{paymentMethod}</div>
-                        {isPaid ? (
-                            <div className="alert-success">Paid at {paidAt}</div>
-                        ) : (
-                            <div className="alert-error">Not paid</div>
-                        )}
-                        </div>
+              <div className="ship-add">
+                <h4>Payment Method</h4>
+                <div><p>{paymentMethod}</p></div>
+                {isPaid ? (
+                  <div className="alert-success"><p>Paid at {paidAt}</p></div>
+                  ) : (
+                  <div className="alert-error"><p>Not paid</p></div>
+                )}
+              </div>
 
-            <div className="card overflow-x-auto p-5">
-              <h2 className="mb-2 text-lg">Order Items</h2>
-              <table className="min-w-full">
-                <thead className="border-b">
-                  <tr>
-                    <th className="px-5 text-left">Item</th>
-                    <th className="    p-5 text-right">Quantity</th>
-                    <th className="  p-5 text-right">Price</th>
-                    <th className="p-5 text-right">Subtotal</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {orderItems.map((item) => (
-                    <tr key={item._id} className="border-b">
-                      <td>
-                        <Link href={`/product/${item.slug}`}>
-                          <a className="flex items-center">
-                            <Image
-                              src={item.image}
-                              alt={item.name}
-                              width={50}
-                              height={50}
-                            ></Image>
-                            &nbsp;
-                            {item.name}
-                          </a>
-                        </Link>
-                      </td>
-                      <td className=" p-5 text-right">{item.quantity}</td>
-                      <td className="p-5 text-right">${item.price}</td>
-                      <td className="p-5 text-right">
-                        ${item.quantity * item.price}
-                      </td>
+              <div className="ship-add">
+                <h4>Order Items</h4>
+                <table className="order-table">
+                  <thead className="order-thead">
+                    <tr  className='order-tr'>
+                      <th className="order-th">Quantity</th>
+                      <th className="order-th">Item</th>
+                      <th className="order-th">Price</th>
+                      <th className="order-th">Subtotal</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {orderItems.map((item) => (
+                      <tr key={item._id} >
+                        <td>
+                          <Link href={`/product/${item.slug}`}>
+                            <a className="a-im">
+                              <Image
+                                src={item.image}
+                                alt={item.name}
+                                width={50}
+                                height={50}
+                              ></Image>
+                              &nbsp;
+                              <p>{item.name}</p>
+                            </a>
+                          </Link>
+                        </td>
+                        <td><p>{item.quantity}</p></td>
+                        <td><p>₦{item.price}</p> </td>
+                        <td><p>₦{item.quantity * item.price}</p></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
             </div>
           </div>
-          <div>
-            <div className="card  p-5">
-              <h2 className="mb-2 text-lg">Order Summary</h2>
+            <div className="ship-sum">
+              <h4>Order Summary</h4>
               <ul>
                 <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Items</div>
-                    <div>${itemsPrice}</div>
+                  <div>
+                    <h5>Items</h5>
+                    <div><p>₦{itemsPrice}</p></div>
                   </div>
                 </li>{' '}
                 <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Tax</div>
-                    <div>${taxPrice}</div>
-                  </div>
+                <div>
+                      <h5>Tax</h5>
+                      <div><p>₦{taxPrice}</p> </div>
+                    </div>
                 </li>
                 <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Shipping</div>
-                    <div>${shippingPrice}</div>
-                  </div>
+                <div>
+                      <h5>Shipping</h5>
+                      <div> <p>₦{shippingPrice}</p></div>
+                    </div>
                 </li>
                 <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Total</div>
-                    <div>${totalPrice}</div>
+                  <div>
+                    <h5>Total</h5>
+                    <div><p>₦{totalPrice}</p></div>
                   </div>
                 </li>
                 {!isPaid && (
@@ -300,14 +302,14 @@ function OrderScreen() {
                       <div>Loading...</div>
                     ) : (
                       <div className="w-full">
-                        {/* <PayPalButtons
+                        <PayPalButtons
                           createOrder={createOrder}
                           onApprove={onApprove}
                           onError={onError}
-                        ></PayPalButtons> */}
+                        ></PayPalButtons>
                       
                         <PaystackButton
-                          {...componentProps} className="paystack-button"
+                          {...componentProps} className="paystack-button create-act-btn"
                         ></PaystackButton>
                       </div>
                       
@@ -316,19 +318,18 @@ function OrderScreen() {
                   </li>
                 )}
                 {session.user.isAdmin && order.isPaid && !order.isDelivered && (
-                  <li>
+                  <div>
                     {loadingDeliver && <div>Loading...</div>}
                     <button
-                      className="primary-button w-full"
+                      className="create-act-btn"
                       onClick={deliverOrderHandler}
                     >
                       Deliver Order
                     </button>
-                  </li>
+                  </div>
                 )}
               </ul>
             </div>
-          </div>
         </div>
       )}
         </div>

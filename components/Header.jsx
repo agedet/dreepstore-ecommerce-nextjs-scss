@@ -4,7 +4,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Store } from '../utils/Store';
 import { signOut, useSession } from 'next-auth/react';
 import Cookies from 'js-cookie';
-// import DropdownLink from './DropdownLink';
+import { Menu } from '@headlessui/react';
+import DropdownLink from './DropdownLink';
 
 const Header = () => {
     const [clicked, setClicked] = useState(false);
@@ -78,44 +79,38 @@ const Header = () => {
                                 )} */}
                                 {cartItemsCount > 0 && (
                                     <span className='cart-span-add'>
-                                        {cartItemsCount}
+                                        {cartItemsCount} 
                                     </span>
                                 )}
                             </a> 
                         </NextLink> 
                     </li>
-                    {/* <li>
-                        <a>
-                            <i className='fas fa-user' /> 
-                            User  
-                            <i className='fas fa-circle-caret-down' />
-                        </a>
-                    </li> */}
                     <li>
-                        {
-                            status === 
-                                'loading' ? 
-                                ('Loading') : 
-                            session?.user ? 
-                            (
-                                <div>
-                                    <span>{session.user.firstName}</span>
-                                   
-                                        
-                                            <Link href='/profile'><a>Profile</a></Link>
-                                        
-                                        
-                                            <Link href='/order-history'><a>Order History</a></Link>
-                                        
-                                        {session.user.isAdmin && (
-                                            
-                                                <Link href='/admin/dashboard'><a>Admin Dashboard</a></Link>
-                                            
-                                        )}
-                                        
-                                            <a onClick={logoutClickHandler}>Logout</a>  
-                                        
-                                </div>
+                        {   status === 'loading' ? ('Loading') : session?.user ? (
+                                <Menu as='div' className='relative inline-block'>
+                                    <Menu.Button className="text-blue">
+                                      {/* <i className='fas fa-user' />   */}
+                                      {session.user.name} <i className='fas fa-caret-down' />
+                                    </Menu.Button>
+                                    <Menu.Items className="absolute right-0 w-56 origin-top-right shadow-lg">
+                                        <Menu.Item>
+                                            <DropdownLink className="dropdown-link" href="/profile">
+                                                Profile
+                                            </DropdownLink>
+                                        </Menu.Item>
+                                        <Menu.Item>
+                                            <DropdownLink className="dropdown-link" href="/order-history">
+                                                Order History
+                                            </DropdownLink>
+                                        </Menu.Item>
+                                        <Menu.Item>
+                                            <a className="dropdown-link" href="/#" onClick={logoutClickHandler}>
+                                                Logout
+                                            </a>
+                                        </Menu.Item>
+
+                                    </Menu.Items>
+                                </Menu>
                             ) : (
                                 <Link href="/signin"><a>Login</a></Link>
                             )

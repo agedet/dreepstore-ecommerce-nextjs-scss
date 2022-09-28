@@ -13,8 +13,6 @@ export default function ShippingScreen() {
 
   useEffect(() => {
     setValue('fullName', shippingAddress.fullName);
-    // setValue('firstName', shippingAddress.firstName);
-    // setValue('lastName', shippingAddress.lastName);
     setValue('address', shippingAddress.address);
     setValue('city', shippingAddress.city);
     setValue('postalCode', shippingAddress.postalCode);
@@ -55,23 +53,9 @@ export default function ShippingScreen() {
                   })}
                 />
                 {errors.fullName && (
-                  <div className="text-red-500">{errors.fullName.message}</div>
+                  <div className="text-red">{errors.fullName.message}</div>
                 )}
               </div>
-              {/* <div>
-                <label htmlFor="lastName" className='form-label'>Last Name</label>
-                <input
-                  className="form-input"
-                  id="lastName"
-                  autoFocus
-                  {...register('lastName', {
-                    required: 'Please enter last name',
-                  })}
-                />
-                {errors.lastName && (
-                  <div className="text-red-500">{errors.lastName.message}</div>
-                )}
-              </div> */}
               <div>
                 <label htmlFor="address" className='form-label'>Address</label>
                 <input
@@ -83,7 +67,7 @@ export default function ShippingScreen() {
                   })}
                 />
                 {errors.address && (
-                  <div className="text-red-500">{errors.address.message}</div>
+                  <div className="text-red">{errors.address.message}</div>
                 )}
               </div>
               <div>
@@ -96,7 +80,7 @@ export default function ShippingScreen() {
                   })}
                 />
                 {errors.city && (
-                  <div className="text-red-500 ">{errors.city.message}</div>
+                  <div className="text-red ">{errors.city.message}</div>
                 )}
               </div>
               <div>
@@ -109,7 +93,7 @@ export default function ShippingScreen() {
                   })}
                 />
                 {errors.postalCode && (
-                  <div className="text-red-500 ">{errors.postalCode.message}</div>
+                  <div className="text-red ">{errors.postalCode.message}</div>
                 )}
               </div>
               <div>
@@ -122,11 +106,11 @@ export default function ShippingScreen() {
                   })}
                 />
                 {errors.country && (
-                  <div className="text-red-500 ">{errors.country.message}</div>
+                  <div className="text-red ">{errors.country.message}</div>
                 )}
               </div>
               <div>
-                <button className="create-act-btn">Next</button>
+                <button type="submit" className="create-act-btn">Next</button>
               </div>
           </form>
         </div>

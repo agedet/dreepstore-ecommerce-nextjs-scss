@@ -25,7 +25,6 @@ export default function LoginScreen() {
   } = useForm();
 
   const submitHandler = async ({ email, password }) => {
-    console.log(email, password);
     try {
       const result = await signIn('credentials', { 
         redirect: false, 
@@ -52,29 +51,20 @@ export default function LoginScreen() {
                 <input 
                   type="email"
                   placeholder='enter email address here' 
-                  {
-                    ...register('email', {
-                      required: 'Please enter email',
-                      pattern: {
-                        message: 'Please enter valid email',
-                        value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
-                      },
+                  {...register('email', {required: 'Please enter email', 
+                      pattern: {message: 'Please enter valid email', value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i, },
                   })}
                   className='form-input'
                   id='email'
-                />
+                  autoFocus
+                ></input>
                 {errors.email && (
-                  <div className="text-red-500">{errors.email.message}</div>
+                  <div className="text-red">{errors.email.message}</div>
                 )}
               </div>
 
               <div>
-                <label 
-                  htmlFor='password'
-                  className='form-label'
-                >
-                  Password
-                </label>
+                <label htmlFor='password' className='form-label'>Password</label>
                 <input 
                   type="password"
                   placeholder='enter password here' 
@@ -84,9 +74,10 @@ export default function LoginScreen() {
                   })}
                   className='form-input'
                   id='password'
+                  autoFocus
                 />
                 {errors.password && (
-                  <div className="text-red-500">{errors.password.message}</div>
+                  <div className="text-red">{errors.password.message}</div>
                 )}
               </div>
 

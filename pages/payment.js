@@ -37,14 +37,15 @@ export default function PaymentScreen() {
                 <h3>Payment Method</h3>
                 <form onSubmit={submitHandler}>
                     {['PayPal', 'Stripe', 'PayStack', 'CashOnDelivery'].map((payment) => (
-                        <div key={payment}>
+                        <div key={payment} className="pay-marg">
                             <input 
                                 name="paymentMethod"
                                 id={payment}
                                 type="radio"
                                 checked={selectedPaymentMethod === payment}
                                 onChange={() => setSelectedPaymentMethod(payment)}
-                                className="form-input"
+                                className="form-input-radio focus:ring-0"
+                                
                             />
                             <label htmlFor={payment} className='form-label'>
                                 {payment}

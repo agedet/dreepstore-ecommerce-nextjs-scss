@@ -17,14 +17,14 @@ export default function ProfileScreen() {
     } = useForm();
 
     useEffect(() => {
-        setValue('fullName', session.user.fullName);
+        setValue('name', session.user.name);
         setValue('email', session.user.email);
     }, [session.user, setValue]);
 
-    const submitHandler = async ({ fullName, email, password }) => {
+    const submitHandler = async ({ name, email, password }) => {
         try {
         await axios.put('/api/auth/update', {
-            fullName,
+            name,
             email,
             password,
         });
@@ -49,18 +49,18 @@ export default function ProfileScreen() {
            <h3>Profile</h3> 
            <form onSubmit={handleSubmit(submitHandler)}>
                 <div>
-                    <label htmlFor="fullName" className='form-label'>Full Name</label>
+                    <label htmlFor="name" className='form-label'>Full Name</label>
                     <input
                         type="text"
                         className="form-input"
-                        id="fullName"
+                        id="name"
                         autoFocus
-                        {...register('fullName', {
+                        {...register('name', {
                         required: 'Please enter full name',
                         })}
                     />
-                    {errors.fullName && (
-                        <div className="text-red-500">{errors.fullName.message}</div>
+                    {errors.name && (
+                        <div className="text-red">{errors.name.message}</div>
                     )}
                 </div>
                 {/* <div>

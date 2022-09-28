@@ -97,12 +97,126 @@ body {
     font-size: 12px;
 }
 
+/* -----PLACE ORDER */
+section.place-order-section {
+    padding: 2em 1em;
+}
+
+.ship-order h4 {
+    font-size: 1em;
+
+}
+.ship-order p {
+    font-size: .8em;
+    margin: 1em 0;
+}
+
+.ship-order a {
+    font-size: .8em;
+    margin: 1em 0;
+    color: var(--secondary-color); 
+}
+
+.ship-order a:hover {
+    text-decoration: underline;
+}
+
+.ship-add {
+    margin: 1em 0; 
+}
+
+.ship-add-link {
+    margin: 1em 0; 
+}
+
+.ship-add a:hover {
+    text-decoration: underline;
+}
+
+.order-th {
+    font-size: .7em;
+    margin: 1em .5em;
+}
+
+.order-td {
+    font-size: .7em;
+    margin: 1em .5em;
+}
+.order-td a {
+    font-size: .7em;
+    margin: 1em .5em;
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.a-im {
+    display: flex;
+    text-align: center;
+}
+
+.create-act-btn {
+    display: block;
+    padding: 1em 2em;
+    background: var(--nav-color);
+    color: var(--gray-b);
+    margin-bottom: .5em;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.pay-met {
+    margin: 1em 0; 
+}
+
+.order-his-section {
+    padding: 2em 1em;
+    min-height: 70vh;
+
+}
+
+
+
 @media only screen and (min-width: 768px) {
     .shoppin-container {
         display: grid;
         grid-template-columns: 1fr, 1fr;
         /* border: solid 1px green; */
         margin: 1em 0;
+    }
+
+    section.place-order-section {
+        padding: 3em 4em;
+    }
+
+    .ship-order {
+        display: flex;
+        justify-content: space-between;
+    
+    }
+
+    .order-his-section {
+        padding: 3em 3em;
+        min-height: 70vh;
+    }
+
+    .order-th {
+        font-size: .7em;
+        margin: 1em .5em;
+        padding: 1em;
+    }
+    
+    .order-td {
+        font-size: .7em;
+        margin: 1em .5em;
+        padding: 1em;
+    }
+    .order-td a {
+        font-size: .9em;
+        margin: 1em .5em;
+        color: var(--secondary-color);
+        text-decoration: underline;
     }
 }
 
@@ -111,5 +225,44 @@ body {
         
         /* border: solid 1px yellow; */
         margin: 1em 0;
+    }
+
+    section.place-order-section {
+        padding: 5em 4em;
+    }
+
+    .ship-order {
+        display: flex;
+        justify-content: space-between;
+    
+    }
+
+    .ship-pick {
+        width: 70%;
+    }
+    .ship-sum {
+        width: 30%;
+    }
+
+    .order-his-section {
+        padding: 5em 4em;
+        min-height: 70vh;
+    }
+    .order-th {
+        font-size: .9em;
+        margin: 1em .5em;
+        padding: 1em;
+    }
+    
+    .order-td {
+        font-size: .9em;
+        margin: 1em .5em;
+        padding: 1em;
+    }
+    .order-td a {
+        font-size: .9em;
+        margin: 1em .5em;
+        color: var(--secondary-color);
+        text-decoration: underline;
     }
 }

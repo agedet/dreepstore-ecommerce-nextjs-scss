@@ -27,11 +27,10 @@ export default function SignupScreen() {
     formState: { errors },
   } = useForm();
 
-  const submitHandler = async ({ fullName, email, password }) => {
-    console.log(fullName, email, password)
+  const submitHandler = async ({ name, email, password }) => {
     try {
       await Axios.post('/api/auth/signup', {
-        fullName,
+        name,
         email,
         password,
       });
@@ -57,20 +56,20 @@ export default function SignupScreen() {
 
             <form onSubmit={handleSubmit(submitHandler)}>
               <div>
-                <label htmlFor='fullName' className='form-label'>
+                <label htmlFor='name' className='form-label'>
                   Full Name
                 </label>
                 <input 
-                  type="fullName" 
-                  id='fullName'
+                  type="name" 
+                  id='name'
                   placeholder='enter full name here' 
                   className='form-input' 
-                  {...register('fullName', {
+                  {...register('name', {
                     required: 'Please enter full name',
                   })}
                 />
-                {errors.fullName && (
-                  <div className="text-red-500">{errors.fullName.message}</div>
+                {errors.name && (
+                  <div className="text-red-500">{errors.name.message}</div>
                 )}
               </div>
 

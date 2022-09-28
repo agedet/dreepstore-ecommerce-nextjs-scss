@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import { ProductCard } from '../components';
 import data from '../utils/data.js';
 import {ToastContainer} from 'react-toastify'
@@ -21,7 +20,7 @@ function HomePage() {
             <div className='container'>
                 <div className='prod-banner'>
                     <img 
-                        src='/images/ali.jpg' 
+                        src='/images/alirac.jpg' 
                         alt='wardrobe'
                     />
                 </div>

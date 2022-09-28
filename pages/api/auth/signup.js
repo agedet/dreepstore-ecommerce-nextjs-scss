@@ -6,9 +6,9 @@ async function handler(req, res) {
   if (req.method !== 'POST') {
     return;
   }
-  const { fullName, email, password } = req.body;
+  const { name, email, password } = req.body;
   if (
-    !fullName ||
+    !name ||
     !email ||
     !email.includes('@') ||
     !password ||
@@ -30,7 +30,7 @@ async function handler(req, res) {
   }
 
   const newUser = new User({
-    fullName,
+    name,
     email,
     password: bcryptjs.hashSync(password),
     isAdmin: false,
@@ -41,7 +41,7 @@ async function handler(req, res) {
   res.status(201).send({
     message: 'Created user!',
     _id: user._id,
-    fullName: user.fullName,
+    name: user.name,
     email: user.email,
     isAdmin: user.isAdmin,
   });
