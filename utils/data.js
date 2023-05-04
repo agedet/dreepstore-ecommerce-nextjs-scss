@@ -17,9 +17,9 @@ const data = {
     ],
     products: [
        {
-        name: 'Nike AIR Sneaker',
+        name: 'Nike Air Sneaker',
         slug: 'nikeair-suede-black-red',
-        category: 'sneakers',
+        category: 'Sneakers',
         image: '/images/nikeairblue.jpg',
         color: 'Black',
         price: 26500,
@@ -32,7 +32,7 @@ const data = {
        {
         name: 'Nike AIR Sneaker',
         slug: 'nikeair-suede-black-yellow',
-        category: 'sneakers',
+        category: 'Sneakers',
         image: '/images/nikeair-purple.jpg',
         color: 'Black',
         price: 25000,
@@ -40,7 +40,7 @@ const data = {
         brand: 'Nike Air',
         rating: '3.5',
         numReviews: '8',
-        description: 'high quality sneakers',
+        description: 'High Quality Sneakers',
        },
        {
         name: 'Diesel Sneakers',

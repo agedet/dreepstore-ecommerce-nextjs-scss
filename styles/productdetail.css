@@ -1,3 +1,6 @@
+/* // Cinzel & Fauna */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Fauna+One&display=swap');
+
 :root {
     margin: 0;
     padding: 0;
@@ -28,7 +31,7 @@ body {
 .product-det-card {
     display: grid;
     /* grid-template-columns: 1fr; */
-    width: 90%;
+    width: 100%;
     background: var(--nav-color);
     color: var(--gray-b);
     margin: 1.5em 0;

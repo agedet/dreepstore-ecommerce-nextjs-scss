@@ -9,25 +9,37 @@ import 'react-toastify/dist/ReactToastify.css';
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+import {ThemeProvider, createTheme} from '@mui/material/styles'
 
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+    const theme = createTheme(({
+        spacing: 10,
+        palette: {
+            primary: {
+                main: '#f2f2f2'
+            }
+        }
+    }))
+    
     return (
         <SessionProvider session={session}>
             <StoreProvider>
                 <PayPalScriptProvider deferLoading={true}>
-                {Component.auth ? (
-                    <Auth adminOnly={Component.auth.adminOnly}>
-                        <Layout>
-                            <Component {...pageProps} />
-                        </Layout>
-                    </Auth>
-                )
-                : (
-                    <Layout>
-                        <Component {...pageProps} />
-                    </Layout>
-                )}
+                    <ThemeProvider theme={theme}>
+                        {Component.auth ? (
+                            <Auth adminOnly={Component.auth.adminOnly}>
+                                <Layout>
+                                    <Component {...pageProps} />
+                                </Layout>
+                            </Auth>
+                        )
+                        : (
+                            <Layout>
+                                <Component {...pageProps} />
+                            </Layout>
+                        )}
+                    </ThemeProvider>
                 </PayPalScriptProvider>
             </StoreProvider>
         </SessionProvider>

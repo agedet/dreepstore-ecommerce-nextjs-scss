@@ -1,10 +1,11 @@
+import { Typography } from '@mui/material';
 import  Link from 'next/link';
 import { useContext } from 'react';
+import { toast } from 'react-toastify';
 import Rating from '../utils/Rating';
 import { Store } from '../utils/Store';
 
 const ProductCard = ({ product }) => {
-
     // add to cart
     const { state, dispatch} = useContext(Store);
 
@@ -13,11 +14,12 @@ const ProductCard = ({ product }) => {
         const quantity = existItem ? existItem.quantity + 1 : 1;
 
         if (product.countInStock < quantity) {
-            alert('Sorry, Product is out of stock');
+            toast.error('Sorry, Product is out of stock');
             return;
         }
 
         dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
+        toast.success('Item added to cart');
         
     }
 
@@ -28,22 +30,34 @@ const ProductCard = ({ product }) => {
                     <img 
                         src={product.image} 
                         alt={product.name}
-                        height="640px"
+                        width="100%"
+                        height="auto"
+                        object-fit="center"
                     />
                 </Link>
             </div>
 
             <div className='text-content'>
-                <p className='title'>
-                    <Link href={`/product/${product.slug}`}>
+                <Typography variant='h4' className={ `${'title'}`} >
+                    <Link href={`/product/${product.slug}`} >
                         {product.name}
                     </Link>
-                </p>
-                <Rating rating={product.rating} numReviews={product.numReviews} />
+                </Typography>
+                <Typography
+                    variant='body1' 
+                    style={{
+                        fontFamily: 'Poppins',
+                        fontWeight: '400',
+                        fontSize: '16px'
+                    }}
+                >
+                    <Rating rating={product.rating} numReviews={product.numReviews} />
+                </Typography>
+                
 
-                <p className="price">
+                <Typography variant='body1' className="price">
                     ₦{product.price}
-                </p>
+                </Typography>
 
                 {product.countInStock === 0 ? 
                     (<button disabled>Out of Stock</button>) :
