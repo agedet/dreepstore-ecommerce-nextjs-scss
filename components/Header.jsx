@@ -105,8 +105,18 @@ const Header = () => {
                         backgroundColor: 'none'
                     }}
                 >
-                    <Box sx={{display: {xs:'none', md:"flex"}}}>
-                        <li  style={{listStyle: "none", fontWeight :'500'}}
+                    <Box 
+                        sx={{
+                            display: {
+                                xs:'none', 
+                                md:"flex"
+                            }
+                        }}
+                    >
+                        <li  
+                            style={{
+                                fontWeight :'500'
+                            }}
                             onClick={() => handleActiveLink(1)}
                         >
                             <NextLink href='/' 
@@ -115,7 +125,7 @@ const Header = () => {
                                 <a className={activeLink === 1 ?  `${'navbar-link'} ${'activeLink'}` : `${'navbar-link'}`}>Home</a>
                             </NextLink>
                         </li>
-                        <li style={{listStyle: "none", fontWeight :'500'}}
+                        <li sx={{ fontWeight :'500'}}
                             onClick={() => handleActiveLink(2)}
                         >
                             <NextLink href='/about' 
@@ -128,7 +138,7 @@ const Header = () => {
                                 >About</a>
                             </NextLink>
                         </li>
-                        <li style={{listStyle: "none"}} onClick={() => handleActiveLink(3)}>
+                        <li onClick={() => handleActiveLink(3)}>
                             <NextLink href='/shipping'>
                                 <a  className={activeLink === 3 ?  `${'navbar-link'} ${'activeLink'}` : `${'navbar-link'}`}>
                                     Shipping
@@ -144,220 +154,315 @@ const Header = () => {
                         </li>
                     </Box>
                     <Box>
-                        <Typography variant='h3' component='a' href='/'
+                        <Typography 
+                            variant='h3' 
+                            component='a' 
+                            href='/'
                             sx={{
-                                fontFamily: 'Cinzel',
-                                fontWeight: '400',
+                                fontFamily: 'Cinzel !important',
                                 fontSize: '24px', 
-                                color: '#927780', 
+                                lineHeight: '28px',
+                                color: '#000000', 
                                 fontWeight: '700', 
-                                letterSpacing: '0.85px'
+                                letterSpacing: '1px'
                             }}
                         >
                             DreepStore
                         </Typography>
                     </Box>
 
-                    <Box sx={{display: "flex", justifyContent: 'end', alignItems: 'center'}}>
-                        <li style={{listStyle: "none"}}>
-                            <NextLink href='/cart'>
-                                <a>
-                                    <i className='fas fa-cart-plus' style={{fontSize: '20px', color: '#000'}} />
-                                    {cartItemsCount > 0 && (
-                                        <span className='cart-span-add'>
-                                            {cartItemsCount} 
-                                        </span>
-                                    )}
-                                </a>
-                            </NextLink>
-                        </li>
+                    {/* Links */}
+                    <Box 
+                        sx={{display: 'flex', alignItems: 'center'}}
+                    >
+                        <Box 
+                            sx={{
+                                display: "flex", 
+                                justifyContent: 'end', 
+                                alignItems: 'center'
+                            }}
+                        >
+                            <li>
+                                <NextLink href='/cart'>
+                                    <a>
+                                        <i className='fas fa-cart-plus' 
+                                            style={{
+                                                fontSize: '20px', 
+                                                color: '#000000'
+                                            }} 
+                                        />
+                                        {cartItemsCount > 0 && (
+                                            <span className='cart-span-add'>
+                                                {cartItemsCount} 
+                                            </span>
+                                        )}
+                                    </a>
+                                </NextLink>
+                            </li>
 
-                        {/* User Menu */}
-                        {status === 'loading' ? ('Loading') : session?.user ? (
-                           <>
-                            <li style={{listStyle: "none"}}>
-                                <Tooltip title="Open Settings">
-                                    <IconButton 
-                                        onClick={handleOpenUserMenu} 
-                                        sx={{
-                                            display: {xs: 'none', md: 'none'},  
-                                            p: 0 
+                            {/* User Menu */}
+                            {status === 'loading' ? ('Loading') : session?.user ? (
+                            <>
+                                <li sx= {{ display: {xs: 'none', md: 'none'}}}>
+                                    <Tooltip title="Open Settings">
+                                        <IconButton 
+                                            onClick={handleOpenUserMenu} 
+                                            sx={{
+                                                display: {xs: 'none', md: 'none'},  
+                                                p: 0 
+                                            }}
+                                        >
+                                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                            {session.user.name}
+                                        </IconButton>
+                                    </Tooltip>
+                                </li>
+                                <li style={{listStyle: "none"}}>
+                                    <Menu
+                                        id="menu-appbar"
+                                        anchorEl={anchorElUser}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'left',
+                                        }}
+                                        keepMounted
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'left',
+                                        }}
+                                        open={Boolean(anchorElUser)}
+                                        onClose={handleCloseUserMenu}
+                                    >
+                                    <MenuList>
+                                            {settings.map((menuItem) => (
+                                                <MenuItem key={menuItem} onClick={handleCloseUserMenu} 
+                                                sx={{
+                                                    color: '#000000 !important',
+                                                    display:'block', 
+                                                    fontWeight: '500', 
+                                                    padding: '20px 40px'
+                                                }} 
+                                                textAlign="center">
+                                                    <Link href={menuItem.path}>
+                                                        <a sx={{
+                                                            color: '#000000 !important',
+                                                            display:'block', 
+                                                            fontWeight: '400', 
+                                                            padding: '20px 40px'
+                                                        }} 
+                                                        textAlign="center"
+                                                        >
+                                                            {menuItem.title}
+                                                        </a>
+                                                    </Link>
+                                                </MenuItem>
+                                            ))}
+                                            <MenuItem
+                                                style={{
+                                                    background: 'transparent',
+                                                    border: '1px solid #cd6f8e',
+                                                    padding: '10px 30px',
+                                                    borderRadius: '5px',
+                                                    color: '#fff',
+                                                    margin: '0 10px',
+                                                }}
+                                            >
+                                                <Link href='/#'>
+                                                    <a style={{color: '#000000', }}>Logout</a>
+                                                </Link>
+                                            </MenuItem>
+                                    </MenuList>
+                                    </Menu>
+                                </li>
+                                </>
+                            )
+                            : 
+                            (
+                                <Box 
+                                    sx={{
+                                        display: {
+                                            xs: 'none', 
+                                            md: 'flex'
+                                        },
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <li 
+                                        style={{
+                                            margin: '0 10px',
                                         }}
                                     >
-                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                                        {session.user.name}
-                                    </IconButton>
-                                </Tooltip>
-                            </li>
-                            <li style={{listStyle: "none"}}>
-                                <Menu
-                                    id="menu-appbar"
-                                    anchorEl={anchorElUser}
-                                    anchorOrigin={{
-                                        vertical: 'bottom',
-                                        horizontal: 'left',
+                                        <NextLink href='/signin'>
+                                            <a 
+                                                style={{
+                                                    color: '#000000',
+                                                    fontFamily: 'Cinzel',
+                                                    fontWeight: '600',
+                                                    fontSize: '12px',
+                                                    letterSpacing: '0.85px',
+                                                    padding: '10px 30px', 
+                                                    background: 'transparent',
+                                                    border: '1px solid #927780', borderRadius: '2px',
+                                                }}
+                                            >
+                                                Login
+                                            </a>
+                                        </NextLink>
+                                    </li>
+                                    <li 
+                                        style={{
+            
+                                        }}
+                                    >
+                                        <NextLink href='/signup'>
+                                            <a 
+                                                style={{
+                                                    color: '#ffffff', 
+                                                    background: '#927780',
+                                                    padding: '10px 30px',
+                                                    // borderRadius: '2px',
+                                                    fontFamily: 'Cinzel',
+                                                    fontWeight: '600',
+                                                    fontSize: '12px',
+                                                    letterSpacing: '0.85px'
+                                                }}
+                                            >
+                                                Sign Up
+                                            </a>
+                                        </NextLink>
+                                    </li>
+                                </Box>
+                            )}
+                        </Box>
+
+                            {/* Nav MENU */}
+                        <Box 
+                            sx={{
+                                display: {
+                                    xs:'block', 
+                                    md:"none"
+                                },
+                                // background: '#000000',
+                                paddingLeft: '0',
+                                paddingRight: '0'
+
+                            }}
+                        >
+                            {/* nav menu button */}
+                            <IconButton
+                                size="large"
+                                onClick={handleOpenNavMenu}
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                sx={{
+                                    display: {
+                                        xs: 'block', 
+                                        md: 'none'
+                                    } 
+                                }}
+                            >
+                                <MenuIcon 
+                                    sx={{
+                                        fontSize: '40px', 
+                                        color: '#000000',
+                                        paddingRight: '0',
+                                        marginRight: '0',
+                                    }} 
+                                />
+                            </IconButton>
+                        </Box>
+
+                            {/* NAV MENU */}
+                        <Box>
+                            <Menu
+                                sx={{
+                                    display: {
+                                        xs: 'block', 
+                                        md: 'none'
+                                    },
+                                    minHeight: '100vh',
+                                    width: '100% !important',
+                                    // minWidth: '50% !important',
+                                    // maxWidth: '50% !important',
+                                    overflow: 'hidden !important',
+                                    // background: '#000000',
+                                    mx: '0',
+                                    my: '0',
+                                }}
+                                id="menu-appbar"
+                                anchorEl={anchorElNav}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'right',
+                                }}
+                                keepMounted transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                open={Boolean(anchorElNav)}
+                                onClose={handleCloseNavMenu}
+                            >
+                                <MenuList
+                                    sx={{
+                                        display: {
+                                            xs: 'block', 
+                                            md: 'block'
+                                        },
+                                        height: 'auto',
+                                        width: '100% !important',
+                                        minWidth: '100% !important',
+                                        maxWidth: '100% !important',
+                                        overflow: 'hidden !mportant',
+                                        background: '#F2F2F2',
+                                        mx: '0',
+                                        my: '0',
                                     }}
-                                    keepMounted
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'left',
-                                    }}
-                                    open={Boolean(anchorElUser)}
-                                    onClose={handleCloseUserMenu}
                                 >
-                                   <MenuList>
-                                        {settings.map((menuItem) => (
-                                            <MenuItem key={menuItem} onClick={handleCloseUserMenu} sx={{
-                                                color: '#927780',
+                                    {/* <MenuItem onClick={handleCloseNavMenu}>
+                                        <NextLink href='/setting' 
+                                            sx={{
+                                                color: '#fff',
+                                                display:'block', fontWeight: '500', 
+                                            }} 
+                                            textAlign="center"
+                                        >Seting
+                                        </NextLink>
+                                    </MenuItem> */}
+                                
+                                    {MenuItems.map((menuItem) => (
+                                            <MenuItem key={menuItem} onClick={handleCloseNavMenu} sx={{
+                                                color: '#927780 !important',
                                                 display:'block', 
                                                 fontWeight: '500', 
                                                 padding: '20px 40px'
                                             }} 
-                                            textAlign="center">
-                                                <Link href={menuItem.path}>
-                                                    <a sx={{
-                                                        color: '#927780',
+                                            textAlign="center"
+                                        >
+                                            <Link href={menuItem.path}
+                                                sx={{
+                                                    color: '#927780 !important',
+                                                    display:'block', 
+                                                    fontWeight: '500', 
+                                                    padding: '20px 40px'
+                                                }}
+                                            >
+                                                <a 
+                                                    sx={{
+                                                        color: '#927780 !important',
                                                         display:'block', 
-                                                        fontWeight: '400', 
+                                                        fontWeight: '500', 
                                                         padding: '20px 40px'
                                                     }} 
-                                                    textAlign="center"
-                                                    >
-                                                        {menuItem.title}
-                                                    </a>
-                                                </Link>
-                                            </MenuItem>
-                                        ))}
-                                        <MenuItem
-                                            style={{
-                                                listStyle: "none",
-                                                background: 'transparent',
-                                                border: '1px solid #cd6f8e',
-                                                padding: '10px 30px',
-                                                borderRadius: '5px',
-                                                color: '#fff',
-                                                margin: '0 10px',
-                                            }}
-                                        >
-                                            <Link href='/#'>
-                                                <a style={{color: '#000', }}>Logout</a>
+                                                textAlign="center"
+                                                >
+                                                    {menuItem.title}
+                                                </a>
                                             </Link>
                                         </MenuItem>
-                                   </MenuList>
-                                </Menu>
-                            </li>
-                            </>
-                        )
-                        : (
-                           <Box sx={{display: {xs: 'none', md: 'flex'}}}>
-                                <li 
-                                    style={{
-                                        listStyle: "none",
-                                        background: 'transparent',
-                                        border: '1px solid #927780',
-                                        padding: '10px 30px',
-                                        borderRadius: '2px',
-                                        color: '#ffffff',
-                                        margin: '0 10px',
-                                        fontFamily: 'Poppins',
-                                        fontWeight: '500',
-                                        fontSize: '12px',
-                                        letterSpacing: '0.85px'
-                                    }}
-                                >
-                                    <NextLink href='/signin'>
-                                        <a style={{color: '#000000', }}>
-                                            Login
-                                        </a>
-                                    </NextLink>
-                                </li>
-                                <li 
-                                    style={{
-                                        listStyle: "none",
-                                        background: '#927780',
-                                        padding: '10px 30px',
-                                        borderRadius: '2px',
-                                        color: '#000000 !important',
-                                        fontFamily: 'Poppins',
-                                        fontWeight: '500',
-                                        fontSize: '12px',
-                                        letterSpacing: '0.85px'
-                                    }}
-                                >
-                                    <NextLink href='/signup'>
-                                    <a 
-                                        style={{color: '#ffffff', }}
-                                    >
-                                            Sign Up
-                                        </a>
-                                    </NextLink>
-                                </li>
-                            </Box>
-                        )}
-                    </Box>
-
-                        {/* Nav MENU */}
-                    <Box sx={{display: {xs:'block', md:"none"}}}>
-                        {/* nav menu button */}
-                        <IconButton
-                            size="large"
-                            onClick={handleOpenNavMenu}
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            sx={{display: {xs: 'block', md: 'none'} }}
-                        >
-                            <MenuIcon style={{fontSize: '40px', color: '#fff'}} />
-                        </IconButton>
-
-                         {/* NAV MENU */}
-                        <Menu
-                            sx={{display: {xs: 'block', md: 'block'}}}
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                        >
-                            <MenuList>
-                                {/* <MenuItem onClick={handleCloseNavMenu}>
-                                    <NextLink href='/setting' 
-                                        sx={{
-                                            color: '#fff',
-                                            display:'block', fontWeight: '500', 
-                                        }} 
-                                        textAlign="center"
-                                    >Seting
-                                    </NextLink>
-                                </MenuItem> */}
-                               
-                                {MenuItems.map((menuItem) => (
-                                <MenuItem key={menuItem} onClick={handleCloseNavMenu} sx={{
-                                    color: '#927780',
-                                    display:'block', 
-                                    fontWeight: '500', 
-                                    padding: '20px 40px'
-                                }} 
-                                textAlign="center">
-                                    <Link href={menuItem.path}>
-                                        <a sx={{
-                                            color: '#927780',
-                                            display:'block', 
-                                            fontWeight: '500', 
-                                            padding: '20px 40px'
-                                        }} 
-                                        textAlign="center">{menuItem.title}</a>
-                                    </Link>
-                                </MenuItem>
-                                ))}
-                            </MenuList>
-                        </Menu>
+                                    ))}
+                                </MenuList>
+                            </Menu>
+                        </Box>
                     </Box>
                 </Toolbar>
             </Container>

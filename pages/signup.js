@@ -53,14 +53,18 @@ export default function SignupScreen() {
   const useStyles = makeStyles ((theme) => ({
     container: {
       padding: '120px 0 60px 0',
+      overflow: 'hidden',
+      height: {
+        md: '100vh !important'
+      }
     },
     formContainer: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'Center',
-      border: '1px solid ',
+      // border: '1px solid ',
       padding: '40px',
-      borderRadius: '5px'
+      // borderRadius: '5px'
     }
   }));
 
@@ -68,12 +72,13 @@ export default function SignupScreen() {
 
   return (
     <section title='Create Account' className={classes.container}>
-        <Container className='container'>
+        <Container 
+          // className='container'
+        >
           <div  className={classes.formContainer}>
             <div>
               <Typography variant='h2' 
                 sx={{
-                  fontFamily: 'Poppins', 
                   fontWeight: '700', 
                   fontSize: '28px', 
                   padding: '20px 0',

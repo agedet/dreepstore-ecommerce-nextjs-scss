@@ -11,6 +11,7 @@
     box-sizing: border-box;
     --bright-color: #ffffff;
     --secondary-color: #927780;
+    --secondary2-color: #e7dee1;
     --dark-color: #000000;
     --nav-color: #020202;
     --span-text-green: #07C14C;
@@ -26,22 +27,31 @@ html {
     scroll-padding-top: 75px;
 }
 
-h1, h2, h3, h4, h5, h6, p, a {
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel' !important;
+    font-weight: 500;
     margin: 0;
     padding: 0;
     line-height: normal;
+    letter-spacing: 0.85px;
 }
 
 p, a, li, button, ul {
+    font-family: 'Fauna One' !important;
+    font-weight: 500;
     margin: 0;
     padding: 0;
     line-height: normal;
     text-decoration: none;
+    list-style: none !important;
+    letter-spacing: 0.85px;
 }
 
 a:hover {
     text-decoration: none;
 }
+
+
 
 img {
     width: 100%;
@@ -77,22 +87,23 @@ body {
 }
 
 .navbar-link {
-    font-family: 'Cinzel';
-    font-weight: 400;
-    color: #000;
+    font-family: 'Fauna One' !important;
+    color: #000 !important;
     text-decoration: none;
-    letter-spacing: 0.85px;
+    letter-spacing: 0.85px !important;
     padding: 0px 10px;
     font-size: 12px;
-    font-weight: 400;
+    line-height: 16px;
+    font-weight: 700 !important;
     list-style-type: none;
 }
 
 .activeLink {
     // opacity: 1;
-    font-family: 'Cinzel';
-    color: #927780;
+    font-family: 'Fauna One';
+    color: #927780 !important;
     text-decoration: none;
+    font-weight: 700 !important;
 }
 
 // .navbar {

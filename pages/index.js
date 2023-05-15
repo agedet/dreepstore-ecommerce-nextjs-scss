@@ -34,7 +34,7 @@ function HomePage() {
 
             <Grid container spacing={3}>
                 {data.products.map((product) => (
-                    <Grid key={product.slug} item xs={12} sm={6} md={4} lg={4} xl={4}>
+                    <Grid key={product.slug} item xs={12} sm={6} md={4} lg={4} xl={3}>
                         <ProductCard product={product} />
                     </Grid>
                 ))}
