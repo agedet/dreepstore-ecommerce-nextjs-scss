@@ -56,7 +56,60 @@ export default function LoginScreen() {
       // border: '1px solid ',
       padding: '40px',
       // borderRadius: '5px',
+    },
+    formInput: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      borderRadius: '5px',
+      border: '1',
+      borderStyle: 'solid',
+      borderColor: "#000",
+      height: '55px',
+      paddingLeft: '10px',
+      marginBottom: '15px',
+      color: '#000',
+      fontWeight: '700',
+      letterSpacing: '0.85px',
 
+      '&.active': {
+        background: '#F2F2F2 !important',
+        borderRadius: '2px',
+        border: '1',
+        borderStyle: 'solid',
+        borderColor: "#927780 !important",
+        height: '55px',
+        paddingLeft: '10px',
+        marginBottom: '15px',
+        color: '#000 !important',
+      },
+      '&:hover': {
+        background: '#F2F2F2 !important',
+        borderRadius: '2px',
+        border: '1',
+        borderStyle: 'solid',
+        borderColor: "#927780 !important",
+        height: '55px',
+        paddingLeft: '10px',
+        marginBottom: '15px',
+        color: '#000 !important',
+      },
+      '&:focus': {
+        background: '#F2F2F2 !important',
+        borderRadius: '2px',
+        border: '1',
+        borderStyle: 'solid',
+        borderColor: "#927780 !important",
+        height: '55px',
+        paddingLeft: '10px',
+        marginBottom: '15px',
+        color: '#000 !important',
+      },
+    },
+    textRed: {
+      color: '#9b0404',
+      fontFamily: 'Fauna One',
+      fontWeight: '400',
+      fontSize: '12px',
     }
   }));
 
@@ -106,23 +159,11 @@ export default function LoginScreen() {
                   // className='form-input'
                   id='email'
                   autoFocus
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'transparent',
-                    borderRadius: '5px',
-                    border: '1',
-                    borderStyle: 'solid',
-                    borderColor: "#000",
-                    height: '55px',
-                    paddingLeft: '10px',
-                    marginBottom: '15px',
-                    color: '#000',
-                    fontWeight: '700',
-                    letterSpacing: '0.85px'
-                  }}
+
+                  className={classes.formInput}
                 ></input>
                 {errors.email && (
-                  <div className="text-red">{errors.email.message}</div>
+                  <div className={classes.textRed}>{errors.email.message}</div>
                 )}
               </div>
 
@@ -152,23 +193,10 @@ export default function LoginScreen() {
                   // className='form-input'
                   id='password'
                   autoFocus
-                  style={{
-                    width: '100%',
-                    backgroundColor: 'transparent',
-                    borderRadius: '5px',
-                    border: '1',
-                    borderStyle: 'solid',
-                    borderColor: "#000",
-                    height: '55px',
-                    paddingLeft: '10px',
-                    marginBottom: '15px',
-                    color: '#000',
-                    fontWeight: '700',
-                    letterSpacing: '0.85px'
-                  }}
+                  className={classes.formInput}
                 />
                 {errors.password && (
-                  <div className="text-red">{errors.password.message}</div>
+                  <div className={classes.textRed}>{errors.password.message}</div>
                 )}
               </div>
 
@@ -195,11 +223,11 @@ export default function LoginScreen() {
                   variant='contained'
                   // className='create-act-btn'
                   style={{
-                    width: '100%',
+                    width: '340px',
                     backgroundColor: '#927780',
                     height: '55px',
                     marginBottom: '20px',
-                    fontWeight: '700',
+                    fontWeight: '500',
                     letterSpacing: '1px',
                     fontSize: '18px',
                     color: '#ffffff'

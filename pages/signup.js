@@ -65,6 +65,60 @@ export default function SignupScreen() {
       // border: '1px solid ',
       padding: '40px',
       // borderRadius: '5px'
+    }, 
+    formInput: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      borderRadius: '5px',
+      border: '1',
+      borderStyle: 'solid',
+      borderColor: "#000",
+      height: '55px',
+      paddingLeft: '10px',
+      marginBottom: '15px',
+      color: '#000',
+      fontWeight: '700',
+      letterSpacing: '0.85px',
+
+      '&.active': {
+        background: '#F2F2F2 !important',
+        borderRadius: '2px',
+        border: '1',
+        borderStyle: 'solid',
+        borderColor: "#927780 !important",
+        height: '55px',
+        paddingLeft: '10px',
+        marginBottom: '15px',
+        color: '#000 !important',
+      },
+      '&:hover': {
+        background: '#F2F2F2 !important',
+        borderRadius: '2px',
+        border: '1',
+        borderStyle: 'solid',
+        borderColor: "#927780 !important",
+        height: '55px',
+        paddingLeft: '10px',
+        marginBottom: '15px',
+        color: '#000 !important',
+      },
+      '&:focus': {
+        background: '#F2F2F2 !important',
+        borderRadius: '2px',
+        border: '1',
+        borderStyle: 'solid',
+        borderColor: "#927780 !important",
+        height: '55px',
+        paddingLeft: '10px',
+        marginBottom: '15px',
+        color: '#000 !important',
+      },
+    },
+    textRed: {
+      color: '#9b0404',
+      fontFamily: 'Fauna One',
+      fontWeight: '400',
+      fontSize: '12px',
     }
   }));
 
@@ -94,7 +148,7 @@ export default function SignupScreen() {
                 <div>
                   <label htmlFor='name' 
                     style={{
-                      fontFamily: 'Poppins',
+                      // fontFamily: 'Poppins',
                       fontWeight: '700',
                       display: 'block',
                       marginBottom: '5px',
@@ -116,23 +170,10 @@ export default function SignupScreen() {
                       required: 'Please enter full name',
                     })}
 
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'transparent',
-                      borderRadius: '5px',
-                      border: '1',
-                      borderStyle: 'solid',
-                      borderColor: "#000",
-                      height: '55px',
-                      paddingLeft: '10px',
-                      marginBottom: '15px',
-                      color: '#000',
-                      fontWeight: '700',
-                      letterSpacing: '0.85px'
-                    }}
+                    className={classes.formInput}
                   />
                   {errors.name && (
-                    <div className="text-red-500">{errors.name.message}</div>
+                    <div className={classes.textRed}>{errors.name.message}</div>
                   )}
                 </div>
 
@@ -179,23 +220,10 @@ export default function SignupScreen() {
                       },
                     })}
 
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'transparent',
-                      borderRadius: '5px',
-                      border: '1',
-                      borderStyle: 'solid',
-                      borderColor: "#000",
-                      height: '55px',
-                      paddingLeft: '10px',
-                      marginBottom: '15px',
-                      color: '#000',
-                      fontWeight: '700',
-                      letterSpacing: '0.85px'
-                    }}
+                    className={classes.formInput}
                   />
                   {errors.email && (
-                    <div className="text-red-500">{errors.email.message}</div>
+                    <div className={classes.textRed}>{errors.email.message}</div>
                   )}
                 </div>
 
@@ -222,23 +250,10 @@ export default function SignupScreen() {
                       minLength: { value: 6, message: 'password is more than 5 chars' },
                     })}
                     id='password'
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'transparent',
-                      borderRadius: '5px',
-                      border: '1',
-                      borderStyle: 'solid',
-                      borderColor: "#000",
-                      height: '55px',
-                      paddingLeft: '10px',
-                      marginBottom: '15px',
-                      color: '#000',
-                      fontWeight: '700',
-                      letterSpacing: '0.85px'
-                    }}
+                    className={classes.formInput}
                   />
                   {errors.password && (
-                    <div className="text-red-500 ">{errors.password.message}</div>
+                    <div className={classes.textRed}>{errors.password.message}</div>
                   )}
                 </div>
 
@@ -269,29 +284,16 @@ export default function SignupScreen() {
                         message: 'confirm password is more than 5 chars',
                       },
                     })}
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'transparent',
-                      borderRadius: '5px',
-                      border: '1',
-                      borderStyle: 'solid',
-                      borderColor: "#000",
-                      height: '55px',
-                      paddingLeft: '10px',
-                      marginBottom: '20px',
-                      color: '#000',
-                      fontWeight: '700',
-                      letterSpacing: '0.85px'
-                    }}
+                    className={classes.formInput}
                   />
                   {errors.confirmPassword && (
-                    <div className="text-red-500 ">
+                    <div className={classes.textRed}>
                       {errors.confirmPassword.message}
                     </div>
                   )}
                   {errors.confirmPassword &&
                     errors.confirmPassword.type === 'validate' && (
-                      <div className="text-red-500 ">Password do not match</div>
+                      <div className={classes.textRed}>Password do not match</div>
                   )}
                 </div>
                 {/* <div>
@@ -307,10 +309,10 @@ export default function SignupScreen() {
                       backgroundColor: '#927780',
                       height: '55px',
                       marginBottom: '20px',
-                      fontWeight: '700',
+                      fontWeight: '500',
                       letterSpacing: '1px',
                       fontSize: '18px',
-                      color: '#000'
+                      color: '#ffffff'
                     }}
                   >
                     Create Account
