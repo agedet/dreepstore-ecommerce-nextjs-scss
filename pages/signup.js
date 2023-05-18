@@ -54,8 +54,9 @@ export default function SignupScreen() {
     container: {
       padding: '120px 0 60px 0',
       overflow: 'hidden',
-      height: {
-        md: '100vh !important'
+      minHeight: {
+        md: '100vh !important',
+        lg: '100vh !important'
       }
     },
     formContainer: {
@@ -76,11 +77,11 @@ export default function SignupScreen() {
       height: '55px',
       paddingLeft: '10px',
       marginBottom: '15px',
-      color: '#000',
+      color: '#000000',
       fontWeight: '700',
       letterSpacing: '0.85px',
 
-      '&.active': {
+      '&:active': {
         background: '#F2F2F2 !important',
         borderRadius: '2px',
         border: '1',
@@ -89,7 +90,7 @@ export default function SignupScreen() {
         height: '55px',
         paddingLeft: '10px',
         marginBottom: '15px',
-        color: '#000 !important',
+        color: '#000000 !important',
       },
       '&:hover': {
         background: '#F2F2F2 !important',
@@ -100,7 +101,7 @@ export default function SignupScreen() {
         height: '55px',
         paddingLeft: '10px',
         marginBottom: '15px',
-        color: '#000 !important',
+        color: '#000000 !important',
       },
       '&:focus': {
         background: '#F2F2F2 !important',
@@ -111,7 +112,7 @@ export default function SignupScreen() {
         height: '55px',
         paddingLeft: '10px',
         marginBottom: '15px',
-        color: '#000 !important',
+        color: '#000000 !important',
       },
     },
     textRed: {
@@ -318,7 +319,7 @@ export default function SignupScreen() {
                     Create Account
                   </Button>
                 </div>
-                <Typography variant='subtitle2'
+                <Typography variant='body2'
                   style={{
                     color: '#000',
                     textAlign: 'center'
@@ -326,7 +327,12 @@ export default function SignupScreen() {
                 >
                   Already have an account? &nbsp;
                   <Link href={`/signin?redirect=${redirect || '/'}`}>
-                    <a style={{color: '#927780', fontWeight: '700'}}>Sign In</a>
+                    <a 
+                      style={{
+                        color: '#927780', 
+                        fontWeight: '700'
+                      }}
+                    >Sign In</a>
                   </Link>
                 </Typography>
               </form>

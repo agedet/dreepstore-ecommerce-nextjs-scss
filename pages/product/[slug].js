@@ -41,8 +41,13 @@ const ProductScreen = () => {
 
     const useStyles = makeStyles ((theme) => ({
         container: {
-          padding: '120px 0 60px 0',
-          fontFamily: 'Poppins',
+          padding: '120px 0 80px 0',
+        //   fontFamily: 'Poppins',
+          overflow: 'hidden',
+          minHeight: {
+            md: '100vh !important',
+            lg: '100vh !important'
+          }
         },
         buttonUpdate: {
             border: '1px solid #292a3c',
@@ -75,7 +80,12 @@ const ProductScreen = () => {
             <Container>
                 <Typography className="prod-link">
                     <Link href='/'>
-                        <a style={{textTransform: 'capitalize', fontSize: '14px'}}>
+                        <a 
+                            style={{
+                                textTransform: 'capitalize', 
+                                fontSize: '14px'
+                            }}
+                        >
                            <i className="fas fa-arrow-left"/>  {' '}
                            back to products   
                         </a>
@@ -83,7 +93,12 @@ const ProductScreen = () => {
                 </Typography>
                 <div>
                     <Typography variant='h3'
-                        sx={{fontWeight: '700', fontFamily: 'Poppins', fontSize: '20px', marginBottom: '20px'}}
+                        sx={{
+                            fontWeight: '700', 
+                            // fontFamily: 'Poppins', 
+                            fontSize: '20px', 
+                            marginBottom: '20px'
+                        }}
                     >
                         Product Info
                     </Typography>
@@ -245,8 +260,10 @@ const ProductScreen = () => {
 
                                 <Box sx={{margin: '20px 0'}}>
                                     <div className="prod-det-rating">
-                                        <Rating rating={product.rating} 
-                                            numReviews={product.numReviews}> 
+                                        <Rating 
+                                            rating={product.rating} 
+                                            numReviews={product.numReviews}
+                                        > 
                                         </Rating>
 
                                         {product.countInStock > 0 ? 

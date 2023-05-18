@@ -18,9 +18,11 @@ const ProductCard = ({ product }) => {
             return;
         }
 
-        dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
+        dispatch({ 
+            type: 'CART_ADD_ITEM', 
+            payload: { ...product, quantity } 
+        });
         toast.success('Item added to cart');
-        
     }
 
     return (

@@ -5,8 +5,14 @@ import { Store } from '../utils/Store';
 import { signOut, useSession } from 'next-auth/react';
 import Cookies from 'js-cookie';
 import { makeStyles } from '@mui/styles';
-import { AppBar, Avatar, Box, Container, IconButton, Menu, MenuItem, MenuList, Toolbar, Tooltip, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu'
+import { 
+    AppBar, Avatar, Badge, Box, 
+    Container, IconButton, Menu, 
+    MenuItem, MenuList, Toolbar, 
+    Tooltip, Typography 
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import ShoppingBagOutlined from '@mui/icons-material/ShoppingBagOutlined';
 import Link from 'next/link';
 
 
@@ -92,7 +98,11 @@ const Header = () => {
 
   return (
     // <div className={classes.container}>
-        <AppBar position='fixed' width="100%" className={scrolled ? `${'scrolled'}` : `${'not-scrolled'}`}>
+        <AppBar 
+            position='fixed' 
+            width="100%" 
+            className={scrolled ? `${'scrolled'}` : `${'not-scrolled'}`}
+        >
             <Container>
                 <Toolbar 
                     disableGutters 
@@ -184,6 +194,31 @@ const Header = () => {
                         >
                             <li>
                                 <NextLink href='/cart'>
+                                    <Badge
+                                        badgeContent={cartItemsCount}
+                                        color='secondary'
+                                        invisible={cartItemsCount === 0}
+                                        sx={{
+                                            "& .MuiBadge-badge": {
+                                                right: 5,
+                                                top: 5,
+                                                padding: '0 4px',
+                                                height: '14px',
+                                                minWidth: '13px',
+                                                color: 'red !important'
+                                            }
+                                        }}
+                                    >
+                                        <IconButton
+                                            sx={{color: 'black'}}
+                                        >
+                                            <ShoppingBagOutlined sx={{fontSize: '25px'}} />
+                                        </IconButton>
+                                    </Badge>
+                                </NextLink>
+                            </li>
+                            {/* <li>
+                                <NextLink href='/cart'>
                                     <a>
                                         <i className='fas fa-cart-plus' 
                                             style={{
@@ -198,7 +233,7 @@ const Header = () => {
                                         )}
                                     </a>
                                 </NextLink>
-                            </li>
+                            </li> */}
 
                             {/* User Menu */}
                             {status === 'loading' ? ('Loading') : session?.user ? (

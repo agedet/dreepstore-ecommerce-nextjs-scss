@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { makeStyles } from '@mui/styles';
-import { Button, Container, Grid, Typography } from '@mui/material';
+import { Button, Container, Typography } from '@mui/material';
 
 export default function LoginScreen() {
   const { data: session } = useSession();
@@ -63,7 +63,7 @@ export default function LoginScreen() {
       borderRadius: '5px',
       border: '1',
       borderStyle: 'solid',
-      borderColor: "#000",
+      borderColor: "#000000",
       height: '55px',
       paddingLeft: '10px',
       marginBottom: '15px',
@@ -71,7 +71,7 @@ export default function LoginScreen() {
       fontWeight: '700',
       letterSpacing: '0.85px',
 
-      '&.active': {
+      '&:active': {
         background: '#F2F2F2 !important',
         borderRadius: '2px',
         border: '1',
@@ -80,7 +80,7 @@ export default function LoginScreen() {
         height: '55px',
         paddingLeft: '10px',
         marginBottom: '15px',
-        color: '#000 !important',
+        color: '#000000 !important',
       },
       '&:hover': {
         background: '#F2F2F2 !important',
@@ -91,7 +91,7 @@ export default function LoginScreen() {
         height: '55px',
         paddingLeft: '10px',
         marginBottom: '15px',
-        color: '#000 !important',
+        color: '#000000 !important',
       },
       '&:focus': {
         background: '#F2F2F2 !important',
@@ -102,7 +102,7 @@ export default function LoginScreen() {
         height: '55px',
         paddingLeft: '10px',
         marginBottom: '15px',
-        color: '#000 !important',
+        color: '#000000 !important',
       },
     },
     textRed: {
@@ -143,7 +143,7 @@ export default function LoginScreen() {
                     fontWeight: '700',
                     display: 'block',
                     marginBottom: '5px',
-                    color: '#000',
+                    color: '#000000',
                     fontSize: '12px',
                     lineHeight: '19px',
                     textTransform: 'uppercase',
@@ -159,9 +159,8 @@ export default function LoginScreen() {
                   // className='form-input'
                   id='email'
                   autoFocus
-
                   className={classes.formInput}
-                ></input>
+                />
                 {errors.email && (
                   <div className={classes.textRed}>{errors.email.message}</div>
                 )}

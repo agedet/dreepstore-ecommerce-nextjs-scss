@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import { ProductCard } from '../components';
+import { Banner, ProductCard } from '../components';
 import data from '../utils/data.js';
 import {ToastContainer} from 'react-toastify'
 import { makeStyles } from '@mui/styles';
-import { Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 
 
 function HomePage() {
@@ -27,8 +27,20 @@ function HomePage() {
 
         <ToastContainer position="top-center" limit={1} />
 
+        {/* Banner */}
+        {/* <Box >
+            <Banner />
+        </Box> */}
+
         <Container>
-           <Typography variant='h3' sx={{fontWeight: '700', fontFamily: 'Poppins', fontSize: '20px', marginBottom: '20px'}}>
+           <Typography variant='h3' 
+                sx={{
+                    fontWeight: '700', 
+                    // fontFamily: 'Poppins', 
+                    fontSize: '20px', 
+                    marginBottom: '20px'
+                }}
+            >
                 Products
             </Typography> 
 

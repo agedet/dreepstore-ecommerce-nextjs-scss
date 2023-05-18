@@ -5,3 +5,4 @@ export { default as ProductDetail } from './ProductDetail';
 export { default as Footer } from './Footer';
 export { default as PostCard } from './PostCard';
 export { default as DropdownLink } from './DropdownLink';
+export { default as Banner } from './Banner';

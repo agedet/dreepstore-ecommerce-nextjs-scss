@@ -5,6 +5,9 @@
 // Cinzel & Fauna
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Fauna+One&display=swap');
 
+// MANROPE
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;700&display=swap');
+
 :root, * {
     margin: 0;
     padding: 0;
@@ -261,16 +264,21 @@ body {
 }
 
 .cart-nobrainer {
-    margin: 2em 0;
-    text-align: center;
-    display: block;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+    img {
+        width: 50%;
+        height: 50%;
+        margin-top: 50px;
+    }
 }
 
-.cart-nobrainer img {
-    width: 70%;
-    align-items: center;
-    margin: 2em 0;
-}
 .cart-link {
     color: var(--nav-color);
 }
@@ -552,6 +560,22 @@ section {
         display: none;
     }
 
+    .cart-nobrainer {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    
+        img {
+            width: 30%;
+            height: 30%;
+            margin-top: 50px;
+        }
+    }
+
     .navbar {
         padding: 0 1em;
 
@@ -760,6 +784,22 @@ section {
             .link-acc {
                 font-size: 1em;
             }
+        }
+    }
+
+    .cart-nobrainer {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    
+        img {
+            width: 30%;
+            height: 30%;
+            margin-top: 50px;
         }
     }
 }

@@ -29,7 +29,6 @@ function Cart () {
     dispatch({type: 'CART_ADD_ITEM', payload: {...item, quantity}, });
     toast.success('Product updated in the cart');
     // window.alert('Product updated in the cart');
-    
   };
 
   const removeItemHandler = (item) => {
@@ -44,7 +43,11 @@ function Cart () {
   const useStyles = makeStyles ((theme) => ({
     container: {
       padding: '120px 0 80px 0',
-      fontFamily: 'Poppins',
+      overflow: 'hidden',
+      height: {
+        md: '100vh !important',
+        lg: '100vh !important'
+      }
     }
   }));
 
@@ -54,7 +57,14 @@ function Cart () {
     <section title='cart' className={classes.container}>
       <Container>
         <div>
-          <Typography variant='h3' sx={{fontWeight: '700', fontFamily: 'Poppins', fontSize: '20px', marginBottom: '20px'}}>
+          <Typography 
+            variant='h3' 
+            sx={{
+              fontWeight: '700', 
+              fontSize: '20px', 
+              marginBottom: '20px'
+            }}
+          >
             Your cart
           </Typography>
 
@@ -71,6 +81,8 @@ function Cart () {
                   <img 
                     src='/images/shopping.jpg'
                     alt='shopping'
+                    width='200px !important'
+                    height="200px !important"
                   />
                 </div>
               ) : 
