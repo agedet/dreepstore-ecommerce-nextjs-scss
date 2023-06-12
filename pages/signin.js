@@ -131,7 +131,7 @@ export default function LoginScreen() {
                 color: '#000000'
               }}
             >
-              Login
+              Welcome
             </Typography>
 
             <form onSubmit={handleSubmit(submitHandler)}>
@@ -152,7 +152,7 @@ export default function LoginScreen() {
                 >Email</label>
                 <input 
                   type="email"
-                  placeholder='Enter email address' 
+                  placeholder='Enter email' 
                   {...register('email', {required: 'Please enter email', 
                       pattern: {message: 'Please enter valid email', value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i, },
                   })}
@@ -247,7 +247,7 @@ export default function LoginScreen() {
                 <Link href={`/signup?redirect=${redirect || '/'}`} >
                   <a style={{color: '#927780', fontWeight: '700'}}
                   >
-                    Sign Up
+                    Create one
                   </a>
                 </Link>
               </Typography>

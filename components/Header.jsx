@@ -53,6 +53,7 @@ const Header = () => {
         {title: 'About', path: '/about', },
         {title: 'Shipping', path: '/shipping', },
         {title: 'Contact', path: '/contact-us', },
+        {title: 'Blog', path: '/blog', },
         {title: 'Login', path: '/login', },
         {title: 'Sign Up', path: '/signup', }
     ];
@@ -168,6 +169,13 @@ const Header = () => {
                                 // sx={{marginLeft: '30px'}}
                                 >
                                 <a className={activeLink === 4 ?  `${'navbar-link'} ${'activeLink'}` : `${'navbar-link'}`}>Contact us</a>
+                            </NextLink>
+                        </li>
+                        <li  style={{listStyle: "none"}} onClick={() => handleActiveLink(5)}>
+                            <NextLink href='/blog' 
+                                // sx={{marginLeft: '30px'}}
+                                >
+                                <a className={activeLink === 5 ?  `${'navbar-link'} ${'activeLink'}` : `${'navbar-link'}`}>Blog</a>
                             </NextLink>
                         </li>
                     </Box>
@@ -388,7 +396,7 @@ const Header = () => {
                                                     letterSpacing: '0.85px'
                                                 }}
                                             >
-                                                Sign Up
+                                                Create Account
                                             </a>
                                         </NextLink>
                                     </li>

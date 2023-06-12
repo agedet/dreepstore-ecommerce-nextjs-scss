@@ -142,7 +142,19 @@ export default function SignupScreen() {
                   textAlign: 'center',
                 }}
               >
-                Sign Up
+                Welcome
+              </Typography>
+              <Typography variant='body2' 
+                sx={{
+                  fontWeight: '500', 
+                  fontSize: '16px', 
+                  padding: '20px 0',
+                  marginBottom: '20px',
+                  letterSpacing: '0.85px',
+                  textAlign: 'center',
+                }}
+              >
+                Create an account
               </Typography>
 
               <form onSubmit={handleSubmit(submitHandler)}>
@@ -165,7 +177,7 @@ export default function SignupScreen() {
                   <input 
                     type="name" 
                     id='name'
-                    placeholder='enter full name here'
+                    placeholder='enter full name'
                     // className='form-input' 
                     {...register('name', {
                       required: 'Please enter full name',
@@ -182,7 +194,7 @@ export default function SignupScreen() {
                   <label htmlFor='lastName' className='form-label'>Last Name</label>
                   <input 
                     type="lastName" 
-                    placeholder='enter last name here' 
+                    placeholder='enter last name' 
                     className='form-input' 
                     id='lastName'
                     {...register('lastName', {
@@ -210,7 +222,7 @@ export default function SignupScreen() {
                   >Email</label>
                   <input 
                     type="email" 
-                    placeholder='enter email address here'
+                    placeholder='enter email address '
                     //  className='form-input'
                     id='email'
                     {...register('email', {
@@ -244,7 +256,7 @@ export default function SignupScreen() {
                   >Password</label>
                   <input 
                     type="password" 
-                    placeholder='enter password here' 
+                    placeholder='enter password' 
                     // className='form-input' 
                     {...register('password', {
                       required: 'Please enter password',
@@ -274,7 +286,7 @@ export default function SignupScreen() {
                   >Confirm Password</label>
                   <input 
                     type='password' 
-                    placeholder='enter password here' 
+                    placeholder='enter password' 
                     // className='form-input' 
                     id='confirmPassword'
                     {...register('confirmPassword', {
@@ -316,7 +328,7 @@ export default function SignupScreen() {
                       color: '#ffffff'
                     }}
                   >
-                    Sign Up
+                    Create Account
                   </Button>
                 </div>
                 <Typography variant='body2'
