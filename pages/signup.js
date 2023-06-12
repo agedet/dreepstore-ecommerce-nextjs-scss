@@ -168,7 +168,7 @@ export default function SignupScreen() {
                       color: '#000',
                       fontSize: '12px',
                       lineHeight: '19px',
-                      textTransform: 'uppercase',
+                      textTransform: 'capitalize',
                       letterSpacing: '0.95px'
                     }}
                   >
@@ -216,13 +216,13 @@ export default function SignupScreen() {
                       color: '#000',
                       fontSize: '12px',
                       lineHeight: '19px',
-                      textTransform: 'uppercase',
+                      textTransform: 'capitalize',
                       letterSpacing: '0.95px'
                     }}
                   >Email</label>
                   <input 
                     type="email" 
-                    placeholder='enter email address '
+                    placeholder='enter email '
                     //  className='form-input'
                     id='email'
                     {...register('email', {
@@ -250,7 +250,7 @@ export default function SignupScreen() {
                       color: '#000',
                       fontSize: '12px',
                       lineHeight: '19px',
-                      textTransform: 'uppercase',
+                      textTransform: 'capitalize',
                       letterSpacing: '0.95px'
                     }}
                   >Password</label>
@@ -280,7 +280,7 @@ export default function SignupScreen() {
                       color: '#000',
                       fontSize: '12px',
                       lineHeight: '19px',
-                      textTransform: 'uppercase',
+                      textTransform: 'capitalize',
                       letterSpacing: '0.95px'
                     }}
                   >Confirm Password</label>
@@ -325,7 +325,8 @@ export default function SignupScreen() {
                       fontWeight: '500',
                       letterSpacing: '1px',
                       fontSize: '18px',
-                      color: '#ffffff'
+                      color: '#ffffff',
+                      textTransform: 'capitalize'
                     }}
                   >
                     Create Account
@@ -333,7 +334,7 @@ export default function SignupScreen() {
                 </div>
                 <Typography variant='body2'
                   style={{
-                    color: '#000',
+                    color: '#000000',
                     textAlign: 'center'
                   }}
                 >

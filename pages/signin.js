@@ -146,13 +146,13 @@ export default function LoginScreen() {
                     color: '#000000',
                     fontSize: '12px',
                     lineHeight: '19px',
-                    textTransform: 'uppercase',
+                    textTransform: 'capitalize',
                     letterSpacing: '0.95px'
                   }}
                 >Email</label>
                 <input 
                   type="email"
-                  placeholder='Enter email' 
+                  placeholder='enter email' 
                   {...register('email', {required: 'Please enter email', 
                       pattern: {message: 'Please enter valid email', value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i, },
                   })}
@@ -177,14 +177,14 @@ export default function LoginScreen() {
                     color: '#000',
                     fontSize: '12px',
                     lineHeight: '19px',
-                    textTransform: 'uppercase',
+                    textTransform: 'capitalize',
                     letterSpacing: '0.95px',
                   }}
                 
                 >Password</label>
                 <input 
                   type="password"
-                  placeholder='Enter password' 
+                  placeholder='enter password' 
                   {...register('password', {
                     required: 'Please enter password',
                     minLength: { value: 6, message: 'password is more than 5 chars' }, 
@@ -229,7 +229,8 @@ export default function LoginScreen() {
                     fontWeight: '500',
                     letterSpacing: '1px',
                     fontSize: '18px',
-                    color: '#ffffff'
+                    color: '#ffffff',
+                    textTransform: 'capitalize'
                   }}
                 >
                   Login 
