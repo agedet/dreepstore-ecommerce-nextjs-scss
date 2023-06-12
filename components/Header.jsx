@@ -369,9 +369,16 @@ const Header = () => {
                                                     fontWeight: '600',
                                                     fontSize: '12px',
                                                     letterSpacing: '0.85px',
-                                                    padding: '10px 30px', 
+                                                    padding: '20px 30px', 
                                                     background: 'transparent',
-                                                    border: '1px solid #927780', borderRadius: '2px',
+                                                    border: '1px solid #927780', 
+                                                    borderRadius: '5px',
+
+                                                    '&:hover': {
+                                                        background: '#000000',
+                                                        border: '0px',
+                                                        color: '#ffffff'
+                                                    }
                                                 }}
                                             >
                                                 Login
@@ -388,12 +395,19 @@ const Header = () => {
                                                 style={{
                                                     color: '#ffffff', 
                                                     background: '#927780',
-                                                    padding: '10px 30px',
+                                                    padding: '20px 30px',
                                                     // borderRadius: '2px',
                                                     fontFamily: 'Cinzel',
                                                     fontWeight: '600',
                                                     fontSize: '12px',
-                                                    letterSpacing: '0.85px'
+                                                    letterSpacing: '0.85px',
+                                                    borderRadius: '5px',
+
+                                                    '&:hover': {
+                                                        background: '#000000',
+                                                        border: '0px',
+                                                        color: '#ffffff'
+                                                    }
                                                 }}
                                             >
                                                 Create Account
