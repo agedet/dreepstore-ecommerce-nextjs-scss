@@ -137,7 +137,7 @@ export default function SignupScreen() {
                   fontWeight: '700', 
                   fontSize: '28px', 
                   padding: '20px 0',
-                  marginBottom: '20px',
+                  marginBottom: '5px',
                   letterSpacing: '0.85px',
                   textAlign: 'center',
                 }}
@@ -149,7 +149,7 @@ export default function SignupScreen() {
                   fontWeight: '500', 
                   fontSize: '16px', 
                   padding: '20px 0',
-                  marginBottom: '20px',
+                  marginBottom: '15px',
                   letterSpacing: '0.85px',
                   textAlign: 'center',
                 }}
