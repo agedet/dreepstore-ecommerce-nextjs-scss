@@ -136,8 +136,8 @@ export default function SignupScreen() {
                 sx={{
                   fontWeight: '700', 
                   fontSize: '28px', 
-                  padding: '20px 0',
-                  marginBottom: '5px',
+                  padding: '20px 0 10px',
+                  // marginBottom: '5px',
                   letterSpacing: '0.85px',
                   textAlign: 'center',
                 }}
@@ -148,7 +148,7 @@ export default function SignupScreen() {
                 sx={{
                   fontWeight: '500', 
                   fontSize: '16px', 
-                  padding: '20px 0',
+                  padding: '10px 0 20px',
                   marginBottom: '15px',
                   letterSpacing: '0.85px',
                   textAlign: 'center',
