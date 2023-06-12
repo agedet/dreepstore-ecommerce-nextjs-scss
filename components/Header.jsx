@@ -8,8 +8,8 @@ import { makeStyles } from '@mui/styles';
 import { 
     AppBar, Avatar, Badge, Box, 
     Container, IconButton, Menu, 
-    MenuItem, MenuList, Toolbar, 
-    Tooltip, Typography 
+    MenuItem, MenuList, Switch, Toolbar, 
+    Tooltip, Typography, createTheme 
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingBagOutlined from '@mui/icons-material/ShoppingBagOutlined';
@@ -52,7 +52,9 @@ const Header = () => {
         {title: 'Home', path: '/', },
         {title: 'About', path: '/about', },
         {title: 'Shipping', path: '/shipping', },
-        {title: 'Contact', path: '/contact-us', }
+        {title: 'Contact', path: '/contact-us', },
+        {title: 'Login', path: '/login', },
+        {title: 'Sign Up', path: '/signup', }
     ];
 
     const handleOpenNavMenu = (e) => {
@@ -95,6 +97,12 @@ const Header = () => {
     }))
 
     const classes = useStyles();
+
+    // const theme = createTheme({
+    //     palette: {
+    //         type: darkMode ? 'dark' : 'light',
+    //     }
+    // })
 
   return (
     // <div className={classes.container}>
@@ -193,28 +201,46 @@ const Header = () => {
                             }}
                         >
                             <li>
-                                <NextLink href='/cart'>
-                                    <Badge
-                                        badgeContent={cartItemsCount}
-                                        color='secondary'
-                                        invisible={cartItemsCount === 0}
-                                        sx={{
-                                            "& .MuiBadge-badge": {
-                                                right: 5,
-                                                top: 5,
-                                                padding: '0 4px',
-                                                height: '14px',
-                                                minWidth: '13px',
-                                                color: 'red !important'
-                                            }
-                                        }}
-                                    >
+                                {/* <Switch
+                                    checked={darkMode}
+                                    onChange={darkModeChangeHandler}
+                                >
+                                </Switch> */}
+                            </li>
+
+                            <li>
+                                <NextLink href='/cart' passHref>
+                                    <Link>
+                                    {cart.cartItems > 0 ?
+                                        <Badge
+                                            badgeContent={cart.cartitems.length}
+                                            color='secondary'
+                                            // invisible={cartItemsCount === 0}
+                                            sx={{
+                                                "& .MuiBadge-badge": {
+                                                    right: 5,
+                                                    top: 5,
+                                                    padding: '0 4px',
+                                                    height: '14px',
+                                                    minWidth: '13px',
+                                                    color: 'red !important'
+                                                }
+                                            }}
+                                        >
+                                            <IconButton
+                                                sx={{color: 'black'}}
+                                            >
+                                                <ShoppingBagOutlined sx={{fontSize: '25px'}} />
+                                            </IconButton>
+                                        </Badge>
+                                        : 
                                         <IconButton
                                             sx={{color: 'black'}}
                                         >
                                             <ShoppingBagOutlined sx={{fontSize: '25px'}} />
                                         </IconButton>
-                                    </Badge>
+                                    }
+                                    </Link>
                                 </NextLink>
                             </li>
                             {/* <li>
@@ -247,7 +273,7 @@ const Header = () => {
                                                 p: 0 
                                             }}
                                         >
-                                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                            {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
                                             {session.user.name}
                                         </IconButton>
                                     </Tooltip>
@@ -463,10 +489,11 @@ const Header = () => {
                                         >Seting
                                         </NextLink>
                                     </MenuItem> */}
+                                    
                                 
                                     {MenuItems.map((menuItem) => (
                                             <MenuItem key={menuItem} onClick={handleCloseNavMenu} sx={{
-                                                color: '#927780 !important',
+                                                color: '#000000 !important',
                                                 display:'block', 
                                                 fontWeight: '500', 
                                                 padding: '20px 40px'
@@ -475,7 +502,7 @@ const Header = () => {
                                         >
                                             <Link href={menuItem.path}
                                                 sx={{
-                                                    color: '#927780 !important',
+                                                    color: '#000000 !important',
                                                     display:'block', 
                                                     fontWeight: '500', 
                                                     padding: '20px 40px'
@@ -483,7 +510,7 @@ const Header = () => {
                                             >
                                                 <a 
                                                     sx={{
-                                                        color: '#927780 !important',
+                                                        color: '#000000 !important',
                                                         display:'block', 
                                                         fontWeight: '500', 
                                                         padding: '20px 40px'
@@ -495,6 +522,16 @@ const Header = () => {
                                             </Link>
                                         </MenuItem>
                                     ))}
+                                    {/* <MenuItem onClick={handleCloseNavMenu}>
+                                        <NextLink href='/setting' 
+                                            sx={{
+                                                color: '#fff',
+                                                display:'block', fontWeight: '500', 
+                                            }} 
+                                            textAlign="center"
+                                        >{session.user.name}
+                                        </NextLink>
+                                    </MenuItem> */}
                                 </MenuList>
                             </Menu>
                         </Box>

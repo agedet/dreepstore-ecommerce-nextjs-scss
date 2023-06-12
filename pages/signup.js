@@ -273,7 +273,7 @@ export default function SignupScreen() {
                     }}
                   >Confirm Password</label>
                   <input 
-                    type='confirmPassword' 
+                    type='password' 
                     placeholder='enter password here' 
                     // className='form-input' 
                     id='confirmPassword'
@@ -316,7 +316,7 @@ export default function SignupScreen() {
                       color: '#ffffff'
                     }}
                   >
-                    Create Account
+                    Sign Up
                   </Button>
                 </div>
                 <Typography variant='body2'

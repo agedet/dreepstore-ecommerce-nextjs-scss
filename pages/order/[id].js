@@ -8,6 +8,7 @@ import { useEffect, useReducer, useState } from 'react';
 import { toast } from 'react-toastify';
 import { getError } from '../../utils/error';
 import { PaystackButton } from 'react-paystack'
+import Loading from '../../components/Layout';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -197,7 +198,8 @@ function OrderScreen() {
         <h3>{`Order ${orderId}`}</h3>
         <div className='order-container'>
             {loading ? (
-              <div>Loading...</div>
+              <Loading />
+              // <div>Loading...</div>
               ) : error ? (
               <div className="alert-error">{error}</div>
               ) : (

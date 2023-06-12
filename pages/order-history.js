@@ -2,6 +2,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useReducer } from 'react';
 import { getError } from '../utils/error';
+import Loading from '../components/Layout';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -42,7 +43,8 @@ function OrderHistoryScreen() {
         <div className='order-container'>
           <h3>Order History</h3>
             {loading ? (
-              <div>Loading...</div>
+              <Loading />
+              // <div>Loading...</div>
               ) : error ? (
                 <div className="alert-error">{error}</div>
               ) : (

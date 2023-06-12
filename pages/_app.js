@@ -10,6 +10,7 @@ import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import {ThemeProvider, createTheme} from '@mui/material/styles'
+import Loading from "../components/Loading";
 
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
@@ -55,7 +56,7 @@ function Auth({ children, adminOnly }) {
       },
     });
     if (status === 'loading') {
-      return <div>Loading...</div>;
+      return <Loading />;
     }
     if (adminOnly && !session.user.isAdmin) {
       router.push('/unauthorized?message=admin login required');
